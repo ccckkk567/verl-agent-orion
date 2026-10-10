@@ -1,0 +1,12 @@
+# Core versions for this repository, Python 3.12 and vLLM's CUDA 12.8 wheels.
+# This is not a complete lockfile; installation saves the resolved pip freeze.
+torch==2.8.0
+torchvision==0.23.0
+torchaudio==2.8.0
+vllm==0.11.0
+transformers==4.57.3
+ray==2.48.0
+peft==0.17.1
+tensordict==0.10.0
+numpy==2.2.6
+setuptools>=77.0.3,<80
