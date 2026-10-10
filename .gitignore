@@ -132,3 +132,23 @@ data/
 .tmp
 *ports
 
+# Local experiment artifacts
+/artifacts/
+/analysis_bundle/
+/memory_v1_analysis/
+/peer_examples_12/
+/PPT制作/
+/runs/
+/gigpo_memory_pilot/reports/
+*.zip
+
+# Models and containers
+*.safetensors
+*.sif
+
+# Credentials
+.env.*
+!.env.example
+*.pem
+*.key
+
