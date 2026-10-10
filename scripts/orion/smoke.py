@@ -15,6 +15,7 @@ def main():
         "torch": "2.8.0", "torchvision": "0.23.0", "torchaudio": "2.8.0",
         "vllm": "0.11.0", "transformers": "4.57.3", "ray": "2.48.0",
         "peft": "0.17.1", "tensordict": "0.10.0", "numpy": "2.2.6",
+        "qwen-vl-utils": "0.0.14",
     }
     versions = {name: version(name) for name in expected}
     for name, wanted in expected.items():
@@ -40,6 +41,12 @@ def main():
     from vllm.model_executor.models.registry import ModelRegistry
 
     assert "Qwen3VLForConditionalGeneration" in ModelRegistry.get_supported_archs()
+    # Exercise the screenshot input path without downloading a model or image.
+    from PIL import Image
+    from qwen_vl_utils import fetch_image
+
+    image = fetch_image({"image": Image.new("RGB", (64, 64))}, image_patch_size=16)
+    assert image.mode == "RGB" and min(image.size) > 0
     report = {
         "job_id": os.environ["SLURM_JOB_ID"],
         "versions": versions,
@@ -48,6 +55,7 @@ def main():
         "gpu_visibility": os.environ.get("CUDA_VISIBLE_DEVICES"),
         "gpu_bf16_matmul": "passed",
         "qwen3_vl_imports_and_vllm_registration": "passed",
+        "qwen_vl_screenshot_processing": "passed",
         "scope": "Model-stack check only; no model generation or Android emulator run",
     }
     print(json.dumps(report, indent=2))

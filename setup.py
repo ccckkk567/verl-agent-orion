@@ -41,7 +41,7 @@ install_requires = [
     "transformers<=4.57.3",
     "wandb",
     "packaging>=20.0",
-    "qwen-vl-utils[decord]",
+    "qwen-vl-utils",
 ]
 
 TEST_REQUIRES = ["pytest", "pre-commit", "py-spy"]
@@ -58,6 +58,8 @@ SGLANG_REQUIRES = [
 TRL_REQUIRES = ["trl<=0.9.6"]
 MCORE_REQUIRES = ["mbridge"]
 TRANSFERQUEUE_REQUIRES = ["TransferQueue==0.1.2.dev0"]
+# Decord is optional: image input and torchvision video decoding do not need it.
+VIDEO_REQUIRES = ["qwen-vl-utils[decord]"]
 
 extras_require = {
     "test": TEST_REQUIRES,
@@ -70,6 +72,7 @@ extras_require = {
     "trl": TRL_REQUIRES,
     "mcore": MCORE_REQUIRES,
     "transferqueue": TRANSFERQUEUE_REQUIRES,
+    "video": VIDEO_REQUIRES,
 }
 
 

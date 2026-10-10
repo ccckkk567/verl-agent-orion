@@ -1,14 +1,14 @@
 #!/bin/bash -l
 #SBATCH --account=prjsnnn0000269
 #SBATCH --partition=testqueue
-#SBATCH --job-name=orion-install
+#SBATCH --job-name=env-install
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=04:00:00
-#SBATCH --output=orion-install-%j.out
+#SBATCH --output=env-install-%j.out
 
 set -euo pipefail
 # The provided Python raised SIGILL on ioqueue (job 158256), but ran on
@@ -50,6 +50,20 @@ python -m pip install --index-url https://download.pytorch.org/whl/cu128 \
 python -m pip install --index-url https://pypi.org/simple \
     --no-build-isolation --only-binary=vllm,xformers,torch,torchvision,torchaudio \
     -c "$REPO/scripts/orion/constraints.txt" vllm==0.11.0 -e "$REPO"
+# Older installs pulled Decord via the default project dependencies. Its 0.6.0
+# Linux wheel has contradictory Python tags (dmlc/decord#356). The screenshot
+# baseline needs no Decord; torchvision remains available for video decoding.
+python - <<'PY'
+from importlib.metadata import distribution, PackageNotFoundError
+try:
+    decord = distribution("decord")
+except PackageNotFoundError:
+    print("Optional Decord is not installed.")
+else:
+    print("Removing optional Decord; original WHEEL metadata:")
+    print(decord.read_text("WHEEL"))
+PY
+python -m pip uninstall -y decord
 python -m pip check
 
 python -m pip freeze > "$ROOT/logs/orion-packages-${SLURM_JOB_ID}.txt"
