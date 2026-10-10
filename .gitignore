@@ -152,3 +152,7 @@ data/
 *.pem
 *.key
 
+# Orion WebShop links point to downloaded assets outside the checkout.
+/agent_system/environments/env_package/webshop/webshop/data
+/agent_system/environments/env_package/webshop/webshop/search_engine/indexes
+

@@ -1,0 +1,18 @@
+# Text environment dependencies; no browser process or Gradio service needed.
+gym==0.24.0
+beautifulsoup4==4.11.1
+cleantext==1.1.4
+Flask==2.1.2
+Werkzeug==2.1.0
+gdown==5.2.0
+pyserini==0.17.0
+nmslib==2.1.2
+# Pyserini imports its dense-search module even for a Lucene-only searcher.
+faiss-cpu==1.8.0.post1
+rank-bm25==0.2.2
+rich>=13.9,<15
+selenium==4.2.0
+spacy==3.7.5
+thinc==8.2.5
+thefuzz==0.19.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl

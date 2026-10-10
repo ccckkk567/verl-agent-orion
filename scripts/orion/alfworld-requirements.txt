@@ -1,0 +1,5 @@
+alfworld==0.4.2
+textworld[pddl]==1.6.2
+gymnasium==0.29.1
+stable-baselines3==2.6.0
+PyYAML==6.0.2
