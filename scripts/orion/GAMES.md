@@ -63,6 +63,29 @@ repository data directories are not overwritten: inspect any path conflict
 reported by the job. Failed index staging directories remain available for
 diagnosis; do not launch repeated jobs blindly if storage is tight.
 
+### Resume WebShop after a data download failure
+
+If package installation, `pip check` and Java succeeded (as in job 158322),
+update the checkout and submit only the remaining data/index/check work:
+
+```bash
+sbatch scripts/orion/webshop-prepare.sbatch
+```
+
+Read `web-prepare-<jobid>.out`. This job uses the installed WebShop venv and Java
+without installing or upgrading packages. It holds the same lock as installation
+and writes the completion marker only after the interaction check passes.
+
+The original Google Drive link failed to yield a public download URL on Orion.
+Downloads now use a pinned public [community mirror](https://huggingface.co/datasets/sparklabutah/timewarp-env-data),
+with expected byte sizes and SHA-256 checks before publishing each file. The two
+large-file hashes agree with two independent HF mirrors; the human-instruction
+file matches the upstream WebShop GitHub copy. No login or token is used.
+The files total about 5.67 GB, before index/intermediate files.
+Interrupted mirror downloads resume from `.hf.part` files; old Google Drive
+`.part` files are not reused. Existing completed files are verified too. A size
+or hash mismatch stops the job rather than indexing unverified data.
+
 ## Validation and later use
 
 - ALFWorld: download train, seen-validation and unseen-validation games plus

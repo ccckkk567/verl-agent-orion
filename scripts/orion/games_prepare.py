@@ -10,6 +10,20 @@ import sys
 import zipfile
 
 
+# Public community mirror, pinned to a revision. Large-file hashes agree across
+# sparklabutah/timewarp-env-data, YWZBrandon/webshop-data and HongbangYuan/webshop.
+# The instruction file also matches WebShop's upstream baseline_models/data file.
+WEBSHOP_MIRROR = (
+    'https://huggingface.co/datasets/sparklabutah/timewarp-env-data/resolve/'
+    'bfed490a8b4b5dae94b126be6105b84445dcbc4b/webshop'
+)
+WEBSHOP_FILES = {
+    'items_shuffle.json': (5479720229, '2ef591d65df3af89e972ab72468eb82cbf124d876552d9f3678667edd620a6c8'),
+    'items_ins_v2.json': (186295270, '1d36af476bdb8f82a5da62bd8acdabe54cd8de2fa84010d37da5c4890feb447e'),
+    'items_human_ins.json': (5137548, 'cf78667548a71786e1d9049c24b802e48e1084ad4bb021cae56ce1f6d96954a3'),
+}
+
+
 def save_json(path, value):
     temporary = path.with_suffix(path.suffix + '.tmp')
     temporary.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8')
@@ -32,6 +46,28 @@ def download(url, path):
     subprocess.run(['curl', '--fail', '--location', '--retry', '3',
                     url, '-o', str(temporary)], check=True)
     temporary.replace(path)
+
+
+def download_verified(url, path, expected_size, expected_sha256):
+    """Resume a public mirror download; publish only size/hash-verified bytes."""
+    def verify(candidate):
+        if candidate.stat().st_size != expected_size or sha256(candidate) != expected_sha256:
+            raise RuntimeError(f'Dataset size/SHA-256 mismatch: {candidate}; inspect before retrying')
+
+    if path.is_file():
+        verify(path)
+        print(f'DATA_VERIFIED: {path.name} (existing)', flush=True)
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Never append mirror bytes to a partial Google Drive/HTML response.
+    temporary = path.with_name(path.name + '.hf.part')
+    if not temporary.exists() or temporary.stat().st_size < expected_size:
+        subprocess.run(['curl', '--fail', '--location', '--retry', '3',
+                        '--connect-timeout', '30', '--continue-at', '-',
+                        url, '-o', str(temporary)], check=True)
+    verify(temporary)
+    temporary.replace(path)
+    print(f'DATA_VERIFIED: {path.name}', flush=True)
 
 
 def link_directory(link, target):
@@ -84,8 +120,6 @@ def prepare_alfworld(root):
 
 
 def prepare_webshop(root, repo):
-    import gdown
-
     data = Path(os.environ['WEBSHOP_DATA'])
     data.mkdir(parents=True, exist_ok=True)
     base = repo / 'agent_system/environments/env_package/webshop/webshop'
@@ -98,21 +132,12 @@ def prepare_webshop(root, repo):
     records = {}
     for name, file_id in sources.items():
         path = data / name
-        if not path.is_file():
-            temporary = data / (name + '.part')
-            # Public downloads only; never use a borrowed account's cookies.
-            result = gdown.download(id=file_id, output=str(temporary), quiet=False,
-                                    use_cookies=False, resume=True)
-            if not result:
-                raise RuntimeError(f'Download failed for {name}; check Google Drive quota in the log')
-            with temporary.open(encoding='utf-8') as stream:
-                value = json.load(stream)
-            if not isinstance(value, (list, dict)) or not value:
-                raise ValueError(f'Invalid dataset: {name}')
-            del value
-            temporary.replace(path)
+        size, digest = WEBSHOP_FILES[name]
+        download_verified(f'{WEBSHOP_MIRROR}/{name}?download=true', path, size, digest)
+        # Keep the content identity stable for indexes made from Drive downloads.
         records[name] = {'google_drive_id': file_id, 'bytes': path.stat().st_size,
-                         'sha256': sha256(path)}
+                         'sha256': digest}
+    save_json(data / 'download-source.json', {'mirror': WEBSHOP_MIRROR, 'files': records})
 
     sys.path.insert(0, str(base))
     from web_agent_site.engine.engine import load_products
