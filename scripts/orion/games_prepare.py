@@ -23,6 +23,24 @@ WEBSHOP_FILES = {
     'items_human_ins.json': (5137548, 'cf78667548a71786e1d9049c24b802e48e1084ad4bb021cae56ce1f6d96954a3'),
 }
 
+# DefaultLuceneDocumentGenerator (Anserini 0.14.3, bundled by Pyserini 0.17)
+# rejects contents.trim().length() == 0. Java trim removes only U+0000..U+0020,
+# unlike Python str.strip(), which also removes many Unicode whitespace chars.
+JAVA_TRIM_CHARS = ''.join(chr(code) for code in range(33))
+
+
+def empty_index_document(contents):
+    return not contents.strip(JAVA_TRIM_CHARS)
+
+
+def validate_index_count(catalog_count, empty_count, indexed_count):
+    expected = catalog_count - empty_count
+    if not 0 <= empty_count <= catalog_count or indexed_count != expected:
+        raise RuntimeError(
+            f'Index count mismatch: catalog={catalog_count}, empty={empty_count}, '
+            f'expected_indexed={expected}, actual_indexed={indexed_count}'
+        )
+
 
 def save_json(path, value):
     temporary = path.with_suffix(path.suffix + '.tmp')
@@ -164,6 +182,7 @@ def prepare_webshop(root, repo):
     resources = data / f'resources-{os.environ["SLURM_JOB_ID"]}'
     resources.mkdir()
     query = next((p['query'] for p in products if p.get('query')), 'shirt')
+    empty_count = 0
     with (resources / 'documents.jsonl').open('w', encoding='utf-8') as stream:
         for product in products:
             options = ', and '.join(f'{key}: {", ".join(values)}'
@@ -171,9 +190,12 @@ def prepare_webshop(root, repo):
             bullets = product['BulletPoints']
             content = ' '.join([product['Title'], product['Description'],
                                 bullets[0] if bullets else '', options]).lower()
+            empty_count += int(empty_index_document(content))
             stream.write(json.dumps({'id': product['asin'], 'contents': content,
                                      'product': product}) + '\n')
     del products, _
+    print(f'WEBSHOP_INDEX_INPUT: catalog={count}, empty={empty_count}, '
+          f'expected_indexed={count - empty_count}', flush=True)
     # A fresh staging index prevents duplicate documents after interrupted runs.
     stage = data / f'indexes-build-{os.environ["SLURM_JOB_ID"]}'
     if stage.exists():
@@ -183,18 +205,23 @@ def prepare_webshop(root, repo):
                     '--index', str(stage), '--generator', 'DefaultLuceneDocumentGenerator',
                     '--threads', '4', '--storePositions', '--storeDocvectors', '--storeRaw'], check=True)
     searcher = LuceneSearcher(str(stage))
-    assert searcher.num_docs == count, (searcher.num_docs, count)
-    assert searcher.search(str(query), k=5), f'No search results for {query}'
-    searcher.close()
+    indexed_count = searcher.num_docs
+    try:
+        validate_index_count(count, empty_count, indexed_count)
+        assert searcher.search(str(query), k=5), f'No search results for {query}'
+    finally:
+        searcher.close()
     if index.exists():
         index.rename(data / f'indexes-previous-{os.environ["SLURM_JOB_ID"]}')
     stage.rename(index)
-    save_json(marker, {'sources': records, 'indexed_products': count, 'probe_query': query})
+    save_json(marker, {'sources': records, 'catalog_products': count,
+                       'empty_documents': empty_count, 'indexed_products': indexed_count,
+                       'probe_query': query})
     link_directory(base / 'search_engine/indexes', index)
     # Only delete the generated JSONL for this job after index validation.
     (resources / 'documents.jsonl').unlink()
     resources.rmdir()
-    print('WEBSHOP_DATA_AND_INDEX_OK', count, flush=True)
+    print('WEBSHOP_DATA_AND_INDEX_OK', indexed_count, flush=True)
 
 
 def main():

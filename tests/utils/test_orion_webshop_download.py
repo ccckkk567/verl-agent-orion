@@ -90,5 +90,27 @@ class VerifiedDownloadTests(unittest.TestCase):
         self.assertFalse(self.path.exists())
 
 
+class IndexCountTests(unittest.TestCase):
+    def test_reported_full_catalog_with_sixty_empty_documents(self):
+        prepare.validate_index_count(1181430, 60, 1181370)
+
+    def test_missing_nonempty_document_is_not_tolerated(self):
+        with self.assertRaisesRegex(RuntimeError, 'Index count mismatch'):
+            prepare.validate_index_count(1181430, 60, 1181369)
+
+    def test_extra_document_is_not_tolerated(self):
+        with self.assertRaisesRegex(RuntimeError, 'Index count mismatch'):
+            prepare.validate_index_count(1181430, 60, 1181371)
+
+    def test_empty_contents_matches_java_trim(self):
+        for value in ['', '   ', '\t\r\n', '\x00\x1f ']:
+            with self.subTest(value=value):
+                self.assertTrue(prepare.empty_index_document(value))
+        # Java String.trim does not remove these; using Python strip is wrong.
+        for value in ['\u00a0', '\u2003', ' product ', '\x00x\x00']:
+            with self.subTest(value=value):
+                self.assertFalse(prepare.empty_index_document(value))
+
+
 if __name__ == '__main__':
     unittest.main()

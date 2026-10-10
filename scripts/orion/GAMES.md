@@ -86,6 +86,16 @@ Interrupted mirror downloads resume from `.hf.part` files; old Google Drive
 `.part` files are not reused. Existing completed files are verified too. A size
 or hash mismatch stops the job rather than indexing unverified data.
 
+If an older job failed with `AssertionError: (1181370, 1181430)` after indexing,
+update the checkout and resubmit the same preparation job. Verified downloads
+are reused; the index is rebuilt in a fresh staging directory, then checked.
+Anserini skips documents whose search contents are empty after Java `trim()`.
+The check now counts these inputs before indexing and requires exactly
+`indexed = catalog - empty`; any additional missing/extra document still fails.
+The manifest records catalog size, empty inputs and actual index size separately.
+For job 158487, these were 1,181,430, 60 and 1,181,370 respectively. The failed
+job's staging files are preserved; this retry does not delete them.
+
 ## Validation and later use
 
 - ALFWorld: download train, seen-validation and unseen-validation games plus
