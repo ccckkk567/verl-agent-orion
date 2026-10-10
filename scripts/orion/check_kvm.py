@@ -1,4 +1,4 @@
-"""Inspect KVM access in a GPU allocation without installing or changing settings."""
+"""Inspect KVM access in a CPU or GPU allocation without changing settings."""
 
 import argparse
 from contextlib import ExitStack
@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import platform
 import stat
+import sys
 
 
 def read_text(path):
@@ -85,7 +86,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if not os.environ.get("SLURM_JOB_ID"):
-        parser.error("Submit scripts/orion/gpu-kvm.sbatch to run on a compute node.")
+        parser.error("Submit scripts/orion/cpu-kvm.sbatch or gpu-kvm.sbatch on a compute node.")
     if platform.machine() != "x86_64" or platform.system() != "Linux":
         parser.error("This Android x86 emulator check targets x86_64 Linux nodes.")
     modules = {}
@@ -101,6 +102,8 @@ def main():
         "hostname": platform.node(),
         "kernel": platform.release(),
         "architecture": platform.machine(),
+        "python": sys.version,
+        "python_executable": sys.executable,
         "allocated_cpus": os.environ.get("SLURM_CPUS_PER_TASK"),
         "gpu_visibility": os.environ.get("CUDA_VISIBLE_DEVICES"),
         "uid": os.getuid(), "gid": os.getgid(), "groups": os.getgroups(),
