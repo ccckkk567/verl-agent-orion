@@ -25,6 +25,13 @@ screenshot. A 30-minute outer probe limit also bounds interaction/cleanup. Only
 process groups created by this test are terminated; shared ADB servers and other
 emulators are not stopped. SDK/AVD installation never takes place on login nodes.
 
+The private ADB listener uses `-L tcp:localhost:PORT`. ADB rejects a numeric
+`127.0.0.1` hostname in that listener option with "listening on specified
+hostname currently unsupported". Clients explicitly use `-H localhost -P PORT`;
+the server still listens on loopback with its own port. An ADB startup failure
+is reported as `adb_start`, before the emulator is launched. Failed reports
+include the last 8 KiB of each available service log in the Slurm output.
+
 Inspect the repository's `android-soft-JOBID.out`. Detailed outputs are in
 `android-soft-probe/jobs/JOBID/`:
 

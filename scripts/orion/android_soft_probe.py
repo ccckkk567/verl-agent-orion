@@ -132,7 +132,7 @@ def main():
     def adb(*words, timeout=30, check=True):
         if adb_process is None or adb_process.poll() is not None:
             raise RuntimeError('Private ADB server exited; see adb.log')
-        return command([args.sdk / 'platform-tools/adb', '-P', str(adb_port),
+        return command([args.sdk / 'platform-tools/adb', '-H', 'localhost', '-P', str(adb_port),
                         '-s', serial, *words], timeout=timeout, check=check)
 
     def dump_ui(name):
@@ -156,12 +156,18 @@ def main():
             grpc_port = free_port()
         serial = f'emulator-{console_port}'
         env['ANDROID_ADB_SERVER_PORT'] = str(adb_port)
-        env['ADB_SERVER_SOCKET'] = f'tcp:127.0.0.1:{adb_port}'
+        # ADB's listener parser recognizes literal "localhost", but rejects
+        # "127.0.0.1" here even though both normally denote the loopback host.
+        adb_socket = f'tcp:localhost:{adb_port}'
+        env['ADB_SERVER_SOCKET'] = adb_socket
         report['ports'] = {'adb_server': adb_port, 'emulator_console': console_port, 'grpc': grpc_port}
+        report['stage'] = 'adb_start'
+        adb_launch = [str(args.sdk / 'platform-tools/adb'),
+                      '-L', adb_socket, 'server', 'nodaemon']
+        report['adb_launch_command'] = adb_launch
         adb_log = (args.output / 'adb.log').open('wb')
         handles.append(adb_log)
-        adb_process = subprocess.Popen([str(args.sdk / 'platform-tools/adb'),
-            '-L', f'tcp:127.0.0.1:{adb_port}', 'server', 'nodaemon'],
+        adb_process = subprocess.Popen(adb_launch,
             env=env, stdout=adb_log, stderr=subprocess.STDOUT, start_new_session=True)
         time.sleep(1)
         if adb_process.poll() is not None:
@@ -245,6 +251,17 @@ def main():
                 report.setdefault('cleanup_errors', []).append(str(exc))
         for handle in handles:
             handle.close()
+        if report['status'] != 'passed':
+            # Include bounded service diagnostics directly in the Slurm output
+            # through report.json, so a startup failure needs no extra log round trip.
+            for filename in ('adb.log', 'emulator.log'):
+                try:
+                    with (args.output / filename).open('rb') as handle:
+                        handle.seek(0, os.SEEK_END)
+                        handle.seek(max(0, handle.tell() - 8192))
+                        report.setdefault('log_tails', {})[filename] = handle.read().decode(errors='replace')
+                except OSError:
+                    pass
         report['timings_seconds']['total_probe'] = round(time.monotonic() - start, 2)
         path = args.output / 'report.json'
         path.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
