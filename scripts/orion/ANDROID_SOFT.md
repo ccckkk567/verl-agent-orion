@@ -25,12 +25,24 @@ screenshot. A 30-minute outer probe limit also bounds interaction/cleanup. Only
 process groups created by this test are terminated; shared ADB servers and other
 emulators are not stopped. SDK/AVD installation never takes place on login nodes.
 
-Inspect the repository's `android-soft-JOBID.out`. Once the Python probe starts,
-its detailed outputs are in `android-soft-probe/jobs/JOBID/`:
+Inspect the repository's `android-soft-JOBID.out`. Detailed outputs are in
+`android-soft-probe/jobs/JOBID/`:
 
+- `setup-status.json`: failure stage and exit code, including failures before the
+  Python probe starts; `passed` is written only after the emulator probe succeeds.
+- `avd-create.log`: verbose AVD creation output (also included in Slurm output).
+  This SDK tool hides creation warnings without `--verbose`. A message such as
+  `AVD not created / null` alone cannot identify the underlying cause.
 - `report.json`: status, failing stage, command, revisions, timings and ports.
 - `emulator.log`, `adb.log`: launch/transport failures or missing system libraries.
 - `before.png`, `after.png`, `before.xml`, `after.xml`: available after those steps.
+
+`report.json` and emulator outputs exist only once the Python probe starts.
+Creation now uses an explicit per-job AVD path under `.android/avd/`, with modern
+and legacy Android home variables pointing to the same preferences directory.
+The preflight prints SDK revisions and checks writable job directories and the
+system image's userdata source. Existing jobs' AVDs are left untouched; a new
+job reuses the SDK installation marker and does not redownload completed setup.
 
 `ANDROID_SOFTWARE_PROBE_OK` confirms this basic diagnostic passed. A
 `boot_timeout` means this setup did not boot within the limit, not that all
