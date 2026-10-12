@@ -1,0 +1,56 @@
+[
+  {
+    "repository": "Tencent/digitalhuman",
+    "commit": "7e22784db51070fd3ed9b03a23edfca59cb5e800",
+    "path": "RLVMR/code/agent_system/environments/prompts/sciworld.py",
+    "url": "https://raw.githubusercontent.com/Tencent/digitalhuman/7e22784db51070fd3ed9b03a23edfca59cb5e800/RLVMR/code/agent_system/environments/prompts/sciworld.py",
+    "local_file": "RLVMR-sciworld.py",
+    "sha256": "5817ef9f47af40c088e788f58937eb13f794198a4386ce6ce781139121ccf865",
+    "git_blob_sha1": "1a55a8671c97681df7b3f6f9ccd78edcf602be57"
+  },
+  {
+    "repository": "Tencent/digitalhuman",
+    "commit": "7e22784db51070fd3ed9b03a23edfca59cb5e800",
+    "path": "RLVMR/code/agent_system/environments/env_package/sciworld/envs.py",
+    "url": "https://raw.githubusercontent.com/Tencent/digitalhuman/7e22784db51070fd3ed9b03a23edfca59cb5e800/RLVMR/code/agent_system/environments/env_package/sciworld/envs.py",
+    "local_file": "RLVMR-envs.py",
+    "sha256": "7c1d1d7e80a50b63b2372f729742ac34c6b8d0ef2fdd3e082e2839e03e24fd3d",
+    "git_blob_sha1": "589aaa9b880b3a0493dd95841cab64fe9eaca69b"
+  },
+  {
+    "repository": "Tencent/digitalhuman",
+    "commit": "7e22784db51070fd3ed9b03a23edfca59cb5e800",
+    "path": "RLVMR/code/agent_system/environments/env_package/sciworld/projection.py",
+    "url": "https://raw.githubusercontent.com/Tencent/digitalhuman/7e22784db51070fd3ed9b03a23edfca59cb5e800/RLVMR/code/agent_system/environments/env_package/sciworld/projection.py",
+    "local_file": "RLVMR-projection.py",
+    "sha256": "3973f3bd776b97669fcbe12016742b745d762e5a7f641dc1fd02d402b192f1a6",
+    "git_blob_sha1": "81f90b0f8c616c26953a66fd89c4202e7c9397bb"
+  },
+  {
+    "repository": "ZJU-REAL/BEACON",
+    "commit": "c88af45736b0a178106bc14ea89603ff02d8b222",
+    "path": "agent_system/environments/prompts/sciworld.py",
+    "url": "https://raw.githubusercontent.com/ZJU-REAL/BEACON/c88af45736b0a178106bc14ea89603ff02d8b222/agent_system/environments/prompts/sciworld.py",
+    "local_file": "BEACON-sciworld.py",
+    "sha256": "23772305368ce8f447fa42fbff3d520a74add379b019df4f8d143406e3937f48",
+    "git_blob_sha1": "064aefcb3a4c945c6998cd79b4de6561707acd96"
+  },
+  {
+    "repository": "ZJU-REAL/BEACON",
+    "commit": "c88af45736b0a178106bc14ea89603ff02d8b222",
+    "path": "agent_system/environments/env_package/sciworld/envs.py",
+    "url": "https://raw.githubusercontent.com/ZJU-REAL/BEACON/c88af45736b0a178106bc14ea89603ff02d8b222/agent_system/environments/env_package/sciworld/envs.py",
+    "local_file": "BEACON-envs.py",
+    "sha256": "1042ee9106ab1034a3488dd4a586d56fbebbd397d5788c0f9a9ddd027e852ed9",
+    "git_blob_sha1": "c455e38136daeaa2ef22e198a9cbb51611e51a9b"
+  },
+  {
+    "repository": "ZJU-REAL/BEACON",
+    "commit": "c88af45736b0a178106bc14ea89603ff02d8b222",
+    "path": "agent_system/environments/env_package/sciworld/projection.py",
+    "url": "https://raw.githubusercontent.com/ZJU-REAL/BEACON/c88af45736b0a178106bc14ea89603ff02d8b222/agent_system/environments/env_package/sciworld/projection.py",
+    "local_file": "BEACON-projection.py",
+    "sha256": "c1182f250ec9b9954144cb6b1e08e84dda9a89948930c24a4348b005cb098afc",
+    "git_blob_sha1": "871b4acf942d7f66861c336a76aab797b66b70fa"
+  }
+]

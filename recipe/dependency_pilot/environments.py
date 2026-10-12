@@ -128,7 +128,12 @@ class ScienceSession:
     def details(self, obs, reward, done, action):
         score = self.info["score"]
         full = float(self.env.server.getScore()) >= 1.0 and bool(self.env.server.getCompleted())
-        return {"native_score": score, "native_reward": reward, "strict_success": full,
+        extra = {}
+        if getattr(self, "config", {}).get("phase") == "post_p0":
+            from .post_interface import electrical_snapshot
+            extra = {"electrical_observer": electrical_snapshot(self.env), "native_score_scale": "0-100 (failure -100)",
+                     "outer_truncated": False, "native_budget_truncated": bool(done and score >= 0 and not full)}
+        return {**extra, "native_score": score, "native_reward": reward, "strict_success": full,
                 "definition_status": "verified_score_contract", "won": full,
                 "simulator_score": float(self.env.server.getScore()), "native_completed": bool(self.env.server.getCompleted()),
                 "task_description": self.info["taskDesc"], "look": self.info["look"], "inventory": self.info["inv"],
@@ -300,6 +305,12 @@ class PilotManager:
                     + "\nCurrent room:\n" + self.infos[i].get("look", "") + "\nInventory:\n" + self.infos[i].get("inventory", "")
                     + "\nAvailable action templates:\n" + "\n".join(self.sessions[i].env.get_possible_actions())
                     + "\nReason briefly inside <think>...</think>, then give ONE environment command inside <action>...</action>.")
+                profile = self.config.get("prompt_profile", "p0_original")
+                if profile != "p0_original":
+                    from .post_interface import public_context
+                    block, metadata = public_context(self.sessions[i].env, profile)
+                    self.infos[i]["interface_metadata"] = metadata
+                    prompt += "\n" + block
             prompts.append(prompt)
         return {"text": prompts, "image": None, "anchor": list(self.text)}
 

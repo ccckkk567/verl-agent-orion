@@ -1,0 +1,88 @@
+[
+  {
+    "action": "reset",
+    "obs": "This room is called the workshop. In it, you see: \n\tthe agent\n\ta substance called air\n\ta blue light bulb, which is off\n\ta electric buzzer, which is off\n\ta electric motor, which is off\n\ta green light bulb, which is off\n\ta nuclear generator, which is off\n\ta solar panel, which is off\n\ta table. On the table is: a battery, a black wire, a blue wire, a orange wire, a red light bulb, which is off, a switch, which is off, a violet light bulb, which is off, a yellow light bulb, which is off.\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \nYou also see:\n\tA door to the hallway (that is closed)",
+    "moves": 0,
+    "objects": [
+      "agent",
+      "air",
+      "anode in battery",
+      "anode in blue light bulb",
+      "anode in buzzer",
+      "anode in component",
+      "anode in electric motor",
+      "anode in green light bulb",
+      "anode in nuclear generator",
+      "anode in red light bulb",
+      "anode in solar panel",
+      "anode in violet light bulb",
+      "anode in yellow light bulb",
+      "battery",
+      "battery cathode",
+      "black wire",
+      "black wire terminal 1",
+      "black wire terminal 2",
+      "blue light bulb",
+      "blue light bulb cathode",
+      "blue wire",
+      "blue wire terminal 1",
+      "blue wire terminal 2",
+      "buzzer",
+      "cathode in buzzer",
+      "cathode in component",
+      "cathode in electric motor",
+      "cathode in green light bulb",
+      "cathode in nuclear generator",
+      "cathode in red light bulb",
+      "cathode in solar panel",
+      "cathode in violet light bulb",
+      "cathode in yellow light bulb",
+      "door",
+      "electric motor",
+      "freezer",
+      "green light bulb",
+      "hallway",
+      "nuclear generator",
+      "orange wire",
+      "orange wire terminal 1",
+      "orange wire terminal 2",
+      "red light bulb",
+      "solar panel",
+      "switch",
+      "table",
+      "violet light bulb",
+      "workshop",
+      "yellow light bulb"
+    ]
+  },
+  {
+    "action": "look at black wire",
+    "obs": "a black wireits terminal 1 is connected to: nothing. its terminal 2 is connected to: nothing.",
+    "moves": 1
+  },
+  {
+    "action": "connect black wire terminal 1 to anode in battery",
+    "obs": "terminal 1 on black wire is now connected to anode on battery",
+    "moves": 2
+  },
+  {
+    "action": "connect black wire terminal 1 to anode in battery",
+    "obs": "terminal 1 on black wire is already connected, and must be disconnected before it can be connected to something else",
+    "moves": 3
+  },
+  {
+    "action": "go workshop",
+    "obs": "The door is not open.",
+    "moves": 1
+  },
+  {
+    "action": "open door to workshop",
+    "obs": "The door is now open.",
+    "moves": 2
+  },
+  {
+    "action": "go to workshop",
+    "obs": "You move to the workshop.",
+    "moves": 3
+  }
+]

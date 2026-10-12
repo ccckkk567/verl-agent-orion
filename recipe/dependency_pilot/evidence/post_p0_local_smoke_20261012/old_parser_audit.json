@@ -1,0 +1,11 @@
+{
+  "source_steps_sha256": "3ad66c1141f79ecb49afd1fd06f4d1fe17e7a77d45da5d75f96df4bb4fee5dd1",
+  "steps": 219,
+  "changed_actions": 0,
+  "unusable_action_count": 9,
+  "fallback_count": 9,
+  "reference_extraction_differs": 12,
+  "old_prompt_has_templates": true,
+  "old_prompt_has_public_object_block": false,
+  "parser_decision": "unchanged; no fallback rewrite in matched interface comparison"
+}

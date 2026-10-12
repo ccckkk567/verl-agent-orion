@@ -1,0 +1,58 @@
+{
+  "kind": "real_local_interface_smoke_not_full_rep0",
+  "run_id": "scienceworld-interface-smoke-20261012T125520Z-964477",
+  "raw_local_directory": "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\post-p0-20261012\\scienceworld-interface-smoke-20261012T125520Z-964477",
+  "raw_checksums": {
+    "steps.jsonl": "a934262616a04936816ea1996981c5111b6764f61e30466d45c8b377ae316389",
+    "episodes.jsonl": "89363189f531c2320f1755eeb670ba0b8a985bd799c2adf826a81dacb7fecb9f",
+    "resets.jsonl": "0c4a409d7a868fcfa27f1474c047de2cc0514b0aaa05141be0f5d306525aee67",
+    "decisions.jsonl": "12ca97a209a15972d68cf0ecf71c3f219cf0618c7d77f0cda568f78e68c0242d",
+    "resolved_config.json": "d202763a73ef7e77e04701934392e08dbff74a606b22473fb1ee33eb3e6e8bd7",
+    "run_manifest.json": "4fc56ed3482f7b5bc93829cabb75b216131d88c619e9606704b53dcb7e3f5ea5"
+  },
+  "manifest": {
+    "run_id": "scienceworld-interface-smoke-20261012T125520Z-964477",
+    "git": {
+      "commit": "a3614fab98e09af9ee2a1bb2029e65ce0a1342a6",
+      "branch": "exp/dep-prep-p1-sci-rep0-20261012",
+      "status": "M recipe/dependency_pilot/environments.py\n?? recipe/dependency_pilot/post_analysis.py\n?? recipe/dependency_pilot/post_interface.py\n?? recipe/dependency_pilot/post_p0.py"
+    },
+    "versions": {
+      "scienceworld": "1.2.3",
+      "alfworld": null,
+      "appworld": null,
+      "torch": "2.10.0+cu126",
+      "transformers": "4.57.3",
+      "swanlab": "0.10.2",
+      "ray": "2.48.0",
+      "tensordict": "0.10.0"
+    },
+    "command": [
+      "C:\\Users\\19096\\.codex\\worktrees\\dep-prep-pilot\\verl-agent\\recipe\\dependency_pilot\\post_p0.py",
+      "science-smoke",
+      "--source-run",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\hpc-20261012\\scienceworld-collect-20261012T094001Z-8ecf63",
+      "--output-root",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\post-p0-20261012",
+      "--model-path",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\tmp\\dep-prep-models\\Qwen2.5-1.5B-Instruct",
+      "--swanlab-mode",
+      "disabled"
+    ],
+    "status": "completed_exploratory",
+    "slurm_job_id": null,
+    "policy_updated": false,
+    "phase": "post_p0",
+    "execution_kind": "science_smoke",
+    "errors": []
+  },
+  "tracking": {
+    "backend": "swanlab",
+    "mode_requested": "disabled",
+    "mode": "disabled",
+    "url": null,
+    "summary_status": "pending"
+  },
+  "fixture_kind": "independent_researcher_commands_not_model_sampling",
+  "note": "Initial tracking entrypoint failed after successful sampling; current disabled tracking verified separately. Raw records retained."
+}

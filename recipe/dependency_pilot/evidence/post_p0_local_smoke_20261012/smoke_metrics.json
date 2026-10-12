@@ -1,0 +1,347 @@
+{
+  "overall/strict_success": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 2,
+    "unknown_count": 0
+  },
+  "overall/budget_exhaustion": {
+    "value": 0.5,
+    "numerator": 1,
+    "denominator": 2,
+    "unknown_count": 0
+  },
+  "overall/format_compliance": {
+    "value": 0.07692307692307693,
+    "numerator": 1,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/usable_action": {
+    "value": 0.6153846153846154,
+    "numerator": 8,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/no_match": {
+    "value": 0.6153846153846154,
+    "numerator": 8,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/execution_unknown": {
+    "value": 0.07692307692307693,
+    "numerator": 1,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/input_truncated": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/output_limited": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/generic_feedback_pre_anchor": {
+    "value": 0.5384615384615384,
+    "numerator": 7,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/nonzero_episode_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/nonzero_step_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/nonzero_joint_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/alternative_action_coverage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/normal_anchor_support": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 6,
+    "unknown_count": 0
+  },
+  "overall/supported_with_nonzero_AS": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 13,
+    "unknown_count": 0
+  },
+  "overall/mixed_terminal_group_rate": {
+    "value": null,
+    "numerator": 0,
+    "denominator": 0,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/strict_success": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/budget_exhaustion": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/format_compliance": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/usable_action": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/no_match": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/execution_unknown": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/input_truncated": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/output_limited": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/generic_feedback_pre_anchor": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/nonzero_episode_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/nonzero_step_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/nonzero_joint_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/alternative_action_coverage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/normal_anchor_support": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/supported_with_nonzero_AS": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/mixed_terminal_group_rate": {
+    "value": null,
+    "numerator": 0,
+    "denominator": 0,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/has_connection": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/target_focused": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/workshop_reached": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component-renewable-vs-nonrenewable-energy/5|root_original/positive_score_no_connection": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/strict_success": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/budget_exhaustion": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/format_compliance": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/usable_action": {
+    "value": 0.5833333333333334,
+    "numerator": 7,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/no_match": {
+    "value": 0.6666666666666666,
+    "numerator": 8,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/execution_unknown": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/input_truncated": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/output_limited": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/generic_feedback_pre_anchor": {
+    "value": 0.5833333333333334,
+    "numerator": 7,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/nonzero_episode_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/nonzero_step_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/nonzero_joint_advantage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/alternative_action_coverage": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/normal_anchor_support": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 5,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/supported_with_nonzero_AS": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 12,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/mixed_terminal_group_rate": {
+    "value": null,
+    "numerator": 0,
+    "denominator": 0,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/has_connection": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/target_focused": {
+    "value": 0.0,
+    "numerator": 0,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/workshop_reached": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "power-component/7|root_original/positive_score_no_connection": {
+    "value": 1.0,
+    "numerator": 1,
+    "denominator": 1,
+    "unknown_count": 0
+  },
+  "progress/completed_samples": {
+    "value": 2
+  },
+  "cost/env_steps_total": {
+    "value": 13
+  },
+  "training_updates": {
+    "value": 0
+  }
+}

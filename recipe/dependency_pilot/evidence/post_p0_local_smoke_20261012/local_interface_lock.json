@@ -1,0 +1,29 @@
+{
+  "status": "locked_after_real_smoke",
+  "selected_profile": "reference_interface_v1",
+  "smoke_run_id": "scienceworld-interface-smoke-20261012T125520Z-964477",
+  "smoke_steps_sha256": "a934262616a04936816ea1996981c5111b6764f61e30466d45c8b377ae316389",
+  "jar_sha256": "f4e1fdce0cdabe1bab7128a7e78ea820210d9db3c28d7272bcbbc3f3a1c5f0d7",
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "reason": "Templates, public object references, token visibility and native communication checked. No performance threshold or success selection.",
+  "parser_profile": "p0_original_unchanged",
+  "matched_protocol": {
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "max_steps": 50,
+    "rollouts_per_task": 4,
+    "max_total_episodes": 8,
+    "prompt_tokens": 4096,
+    "response_tokens": 512,
+    "history_length": 4,
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "simplifications": "",
+    "gamma": 0.95,
+    "step_advantage_w": 1.0,
+    "reward_profile": "research_terminal_v1",
+    "normalization": "mean_norm",
+    "enable_similarity": false,
+    "invalid_action_penalty": 0.0,
+    "kl_penalty": 0.0
+  }
+}
