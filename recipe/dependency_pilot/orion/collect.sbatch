@@ -10,9 +10,11 @@
 #SBATCH --output=/scratch/prjsnnn0000269/Students/shuming/cjk/logs/cjk-dep-collect-%j.out
 set -euo pipefail
 module purge
-module load miniforge/24.11.3-2
+module load python/3.12.5
 source recipe/dependency_pilot/orion/common.sh
+[[ -f "$PILOT_VENV/.pilot-setup-complete" ]] || { echo 'Pilot setup is incomplete. Run prepare.sbatch and check its log first.' >&2; exit 1; }
 source "$PILOT_VENV/bin/activate"
+python -I -c 'import sys; print("VENV_PYTHON", sys.executable, sys.version, flush=True); assert sys.version_info[:2] == (3, 12); assert sys.prefix != sys.base_prefix'
 export SWANLAB_MODE="${SWANLAB_MODE:-cloud}"
 PILOT_ENV="${1:-scienceworld}"
 case "$PILOT_ENV" in scienceworld|alfworld|appworld) ;; *) echo 'Unknown pilot environment' >&2; exit 2;; esac

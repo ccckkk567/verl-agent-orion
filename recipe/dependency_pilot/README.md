@@ -59,6 +59,8 @@ sbatch recipe/dependency_pilot/orion/collect.sbatch appworld
 
 CPU setup, downloads and JVM reference paths run on `ioqueue`; frozen generation uses one GPU on `testqueue`. All jobs explicitly use `prjsnnn0000269`, names beginning `cjk-dep-`, bounded two-hour allocations, private temp paths and Scratch outputs. No account-wide cancellation, Ray shutdown or process kill.
 
+Following job 159630's missing `torch==2.8.0` distribution error, prepare/collect now explicitly load `python/3.12.5` and verify Python 3.12. The old script's Miniforge module did not verify the interpreter actually selected; the failed job log does not establish its Python version or index. Setup uses a fresh `envs/dep-prep-py312-v2`, preserves v1, logs its old version when available, and selects the official PyTorch CUDA 12.6 index followed by PyPI for the other pinned requirements. Package-index settings are isolated to the job. Collection requires the setup-success marker; `PILOT_PREPARE_OK` in stdout confirms all required preparation checks passed. ALFWorld's optional preparation failure remains separately reported.
+
 Credentials may be provided via `HF_TOKEN` and `SWANLAB_API_KEY`, or upload the separately supplied credentials file to `/scratch/prjsnnn0000269/Students/shuming/cjk/dep-prep-credentials.env`. Jobs source it only into their own environment. The file is separate from Git/config/results. SDK 0.10.2 login defaults to `save=False`.
 
 Outputs: `/scratch/prjsnnn0000269/Students/shuming/cjk/logs/dependency_pilot/<run-id>/`. Batch stdout prints `RUN_DIR=` and `RESULT=`. Each run writes a report even if infrastructure fails. Copy the run directory back locally for review; cloud summary visibility is recorded in `tracking.json`, never inferred from offline files.

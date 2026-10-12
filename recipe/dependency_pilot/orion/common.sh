@@ -2,7 +2,8 @@
 [[ -n "${SLURM_JOB_ID:-}" ]] || { echo 'Run this script inside a Slurm compute job.' >&2; return 1; }
 export ORION_ROOT=/scratch/prjsnnn0000269/Students/shuming/cjk
 export ORION_REPO="${ORION_REPO:-${SLURM_SUBMIT_DIR:?Submit from the experiment checkout}}"
-export PILOT_VENV="$ORION_ROOT/envs/dep-prep-py312-v1"
+# v1 may have been created with an unintended base Python; leave it intact.
+export PILOT_VENV="$ORION_ROOT/envs/dep-prep-py312-v2"
 export PILOT_OUTPUT_ROOT="$ORION_ROOT/logs/dependency_pilot"
 export MODEL_PATH="${MODEL_PATH:-$ORION_ROOT/data/models/Qwen2.5-1.5B-Instruct}"
 export HF_HOME="$ORION_ROOT/.cache/huggingface"
