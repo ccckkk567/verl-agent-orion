@@ -1,0 +1,46 @@
+{
+  "status": "selected_not_run",
+  "prefixes": [
+    {
+      "source_run": "alfworld-collect-20261012T095303Z-d56e91",
+      "source_traj_uid": "636bd564-6758-4fdf-bce0-633499b75de6",
+      "after_step": 10,
+      "prefix_turns": 11,
+      "remaining_turns": 39,
+      "hint": "Clean the cloth you are holding.",
+      "source_step_id": "636bd564-6758-4fdf-bce0-633499b75de6:10",
+      "selection": "first two clean-task trajectories in manifest order; earliest verified pickup; not ranked by outcome"
+    },
+    {
+      "source_run": "alfworld-collect-20261012T095303Z-d56e91",
+      "source_traj_uid": "06a43d5a-ed78-428a-942e-0e89cdd5a77f",
+      "after_step": 14,
+      "prefix_turns": 15,
+      "remaining_turns": 35,
+      "hint": "Clean the cloth you are holding.",
+      "source_step_id": "06a43d5a-ed78-428a-942e-0e89cdd5a77f:14",
+      "selection": "first two clean-task trajectories in manifest order; earliest verified pickup; not ranked by outcome"
+    }
+  ],
+  "conditions": [
+    "original_goal_continuation",
+    "original_goal_plus_local_hint"
+  ],
+  "repeats_per_condition": 2,
+  "rollout_count": 8,
+  "max_new_actions": 296,
+  "response_tokens": 512,
+  "prompt_tokens": 4096,
+  "history_length": 4,
+  "endpoints": [
+    "first native isclean for the held target cloth",
+    "strict task success at original 50-turn endpoint"
+  ],
+  "rules": [
+    "Same prefix, paired seeds, remaining turns and endpoints within each pair.",
+    "Local hint is extra information, not an action sequence.",
+    "Compare replayed facts, observations, admissible actions and history with source and between conditions.",
+    "Original full simulator/RNG snapshots are absent: label reconstructed replay, not exact causal replay.",
+    "Current probes.py supports only ScienceWorld; an ALFWorld replay adapter is still required."
+  ]
+}
