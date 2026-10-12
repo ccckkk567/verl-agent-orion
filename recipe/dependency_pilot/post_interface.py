@@ -58,7 +58,9 @@ def electrical_snapshot(env):
 
 def parser_metadata(raw, action, env):
     # Diagnostic only: preserve original parser and actual command, including fallback.
-    flags = re.S | (re.I if env == 'scienceworld' else 0)
+    # ALFWorld's execution parser lowercases the response before extracting tags;
+    # ScienceWorld's parser uses IGNORECASE. Mirror both in this sidecar only.
+    flags = re.S | re.I
     blocks = re.findall(r'<action>(.*?)</action>', raw, flags)
     clean = bool(blocks) and bool(action.strip()) and '\n' not in action and not re.search(r'</?(?:action|think)>',action,re.I)
     unique = len(blocks) == 1 and len(re.findall(r'<action>',raw,re.I)) == 1 and len(re.findall(r'</action>',raw,re.I)) == 1

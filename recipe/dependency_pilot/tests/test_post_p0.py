@@ -52,6 +52,15 @@ def test_native_connection_not_focus_or_repeat():
     assert e['target_focused'] and not e['connect_success'] and e['generic_pre_anchor']
     assert e['connection_newly_established'] is None
 
+def test_alfworld_mixed_case_tags_match_execution_parser():
+    from recipe.dependency_pilot.environments import parse_action
+    raw='<think>Inspect the cloth.</think><Action>examine cloth 4</Action>'
+    action, _ = parse_action(raw, 'alfworld')
+    meta=parser_metadata(raw, action, 'alfworld')
+    assert action == 'examine cloth 4'
+    assert meta['parser_usable'] and meta['response_action_structure_unambiguous']
+    assert not meta['parser_fallback_used']
+
 def test_read_only_edges_normalized():
     class E:
         def getObjectTree(self):return {'uuid':0,'name':'root','contents':{

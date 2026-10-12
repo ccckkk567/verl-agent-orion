@@ -1,0 +1,188 @@
+[
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "40a66edd-188a-404c-b1b1-554fa56dd84d:0",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p2",
+    "turn": 1,
+    "action": "clean cloth 4 with water and soap",
+    "response": "<think>\nThe user has placed a dirty cloth on the toilet 1. The next step will involve cleaning the cloth before moving it to the toilet.\n</think>\n\n<Action>clean cloth 4 with water and soap</Action>",
+    "feedback": "Nothing happens.",
+    "pre_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "command_admissible": false
+  },
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "2d86b411-8165-4999-83ba-c76837d55b14:0",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p4",
+    "turn": 1,
+    "action": "clean cloth 4",
+    "response": "<think>\nThe cloth needs to be cleaned before being placed in the toilet. It seems that no cleaning steps were taken yet.\n</think>\n\n<action>clean cloth 4</action>",
+    "feedback": "Nothing happens.",
+    "pre_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "command_admissible": false
+  },
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "312d8432-1227-4d06-8406-1cd7b890af1e:5",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p3",
+    "turn": 6,
+    "action": "move cloth 4 to toilet 1",
+    "response": "<think>\nThe previous steps involved examining cloth 4, observing that there's nothing special about it, and examining toilet 1. There was no direct interaction with the toilet yet.\nTo place a clean cloth directly into the toilet, we need to:\n1. Find or make a clean cloth if not available elsewhere (likely from cabinets or countertops).\n2. Place the clean cloth onto the toilet.\n</think>\n\n<Action> move cloth 4 to toilet 1 </Action>",
+    "feedback": "You move the cloth 4 to the toilet 1.",
+    "pre_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [],
+      "clean": [],
+      "placed": [
+        "cloth 4"
+      ],
+      "at_sink": false
+    },
+    "command_admissible": true
+  },
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "312d8432-1227-4d06-8406-1cd7b890af1e:10",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p3",
+    "turn": 11,
+    "action": "move cloth 4 to toilet 1",
+    "response": "<think>\n为了将干净的布巾放入马桶，首先需要检查是否有合适的马桶专用布巾。如果有的话，将其放置在马桶上；如果没有，则选择一个布巾并将其放在马桶上。\n</think>\n\n<action>move cloth 4 to toilet 1</action>",
+    "feedback": "You move the cloth 4 to the toilet 1.",
+    "pre_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [],
+      "clean": [],
+      "placed": [
+        "cloth 4"
+      ],
+      "at_sink": false
+    },
+    "command_admissible": true
+  },
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "312d8432-1227-4d06-8406-1cd7b890af1e:17",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p3",
+    "turn": 18,
+    "action": "move cloth 4 to toilet 1",
+    "response": "<think>\nThe previous sequence of actions did not result in putting the cloth in the toilet. Observations indicate that attempting to move or examine items has been unsuccessful. The last successful action was moving the cloth from the toilet, indicating a need to revisit this action.\n</think>\n\n<Action>move cloth 4 to toilet 1</Action>",
+    "feedback": "You move the cloth 4 to the toilet 1.",
+    "pre_cloth_state": {
+      "held": [
+        "cloth 4"
+      ],
+      "clean": [],
+      "placed": [],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [],
+      "clean": [],
+      "placed": [
+        "cloth 4"
+      ],
+      "at_sink": false
+    },
+    "command_admissible": true
+  },
+  {
+    "case": "alf_clean_or_empty_hand_sink",
+    "analysis_step_id": "312d8432-1227-4d06-8406-1cd7b890af1e:21",
+    "condition": "clean_subgoal",
+    "prefix_id": "clean_pickup_p3",
+    "turn": 22,
+    "action": "go to sinkbasin 1",
+    "response": "<think>\nThe user has already moved the cloth 4 to the toilet 1 and examined it there without any issues. The toilet 1 does not seem to contain anything that would prevent putting a new piece of cloth inside. The next logical steps would either involve moving onto the next bathroom area or examining other areas like cabinets, countertops, sinks, or hand towel holders if needed.\n</think>\n\n<Action> go to sinkbasin 1 </Action>",
+    "feedback": "You arrive at sinkbasin 1. On the sinkbasin 1, you see nothing.",
+    "pre_cloth_state": {
+      "held": [],
+      "clean": [],
+      "placed": [
+        "cloth 4"
+      ],
+      "at_sink": false
+    },
+    "post_cloth_state": {
+      "held": [],
+      "clean": [],
+      "placed": [
+        "cloth 4"
+      ],
+      "at_sink": true
+    },
+    "command_admissible": true
+  },
+  {
+    "case": "science_endpoint_or_late_workshop",
+    "analysis_step_id": "62e390d2-1b00-4bad-855c-8f41fe7bf9ab:0",
+    "turn": 1,
+    "action": "connect black wire to battery anode in battery",
+    "response": "<think>The workshop has all the necessary components to form an electrical circuit that could power the green light bulb with a non-renewable power source. I need to connect the black and orange wires to the battery’s terminals, and then connect these wires to the green light bulb's anodes.</think>\n\n<action>connect black wire to battery anode in battery</action>\n<action>connect orange wire to battery anode in green light bulb</action>\n<action>deactivate green light bulb</action>\n<action>turn on the switch</action>\n<action>focus on green light bulb</action>\n<action>wait1</action>\n<action>turn on the purple power button of the nuclear generator</action>\n<action>wait10</action>\n<action>wait10</action>\n<action>wait10</action>\n<action>watch for signs of activity on the green light bulb</action>",
+    "feedback": "Connections must specify specific points of contact on unpolarized electrical components (e.g. terminal 1, terminal 2)",
+    "native_score_pre": 5,
+    "native_score_post": 5,
+    "edges_pre": [],
+    "edges_post": []
+  },
+  {
+    "case": "science_endpoint_or_late_workshop",
+    "analysis_step_id": "e27917ba-bead-465f-bf69-029e7052e646:49",
+    "turn": 50,
+    "action": "go workshop",
+    "response": "<action>go workshop</action>\n<think>I need to find the components for my task of turning on the green light bulb. The workshop has all the necessary tools and materials.</think>\n\n<action>focus on green light bulb</action>",
+    "feedback": "You move to the workshop.",
+    "native_score_pre": 0,
+    "native_score_post": 13,
+    "edges_pre": [],
+    "edges_post": []
+  }
+]

@@ -1,0 +1,18 @@
+Executed locally on 2026-10-12, from the existing experiment worktree:
+C:\Users\19096\.codex\worktrees\dep-prep-pilot\verl-agent
+
+PowerShell environment used:
+$env:PYTHONPATH='C:\Users\19096\.codex\worktrees\dep-prep-pilot\verl-agent'
+$env:PYTHONIOENCODING='utf-8'
+$env:PYTHONUTF8='1'
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:OMP_NUM_THREADS='4'
+$env:MKL_NUM_THREADS='4'
+
+& 'C:\Users\19096\Desktop\verl-agent\tmp\dep-prep-local\Scripts\python.exe' -m recipe.dependency_pilot.review_post_p0 audit --raw 'C:\Users\19096\Desktop\verl-agent\outputs\dependency_pilot\post-p0-20261012\hpc-159709-159710' --old 'C:\Users\19096\Desktop\verl-agent\outputs\dependency_pilot\hpc-20261012' --tokenizer 'C:\Users\19096\Desktop\verl-agent\tmp\dep-prep-models\Qwen2.5-1.5B-Instruct' --output 'C:\Users\19096\Desktop\verl-agent\outputs\dependency_pilot\post-p0-20261012\review-hpc-159709-159710'
+
+& 'C:\Users\19096\Desktop\verl-agent\tmp\dep-prep-local\Scripts\python.exe' -m recipe.dependency_pilot.review_post_p0 plot --output 'C:\Users\19096\Desktop\verl-agent\outputs\dependency_pilot\post-p0-20261012\review-hpc-159709-159710'
+
+& 'C:\Users\19096\Desktop\verl-agent\tmp\dep-prep-local\Scripts\python.exe' -m pytest -q -p no:cacheprovider --basetemp='C:\Users\19096\Desktop\verl-agent\tmp\post-p0-review-tests-20261012' recipe/dependency_pilot/tests
+
+The audit has completed; repeating it requires a NEW output directory. No raw file is rewritten and no model or environment rollout is launched. Plotting is a separate process. The initial test attempt without an explicit --basetemp had 3 temporary-directory setup errors; the command above passed all 20 tests.

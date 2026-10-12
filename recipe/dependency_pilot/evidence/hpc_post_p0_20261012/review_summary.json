@@ -1,0 +1,1378 @@
+{
+  "source_archive_sha256": "7a4810dbd2a8cad0308ba6a5fef827eb7e182627cea26850a5e8af33776d8c24",
+  "analysis_only_no_new_rollouts": true,
+  "audit_checks": {
+    "imported_file_sha256": {
+      "passed": 136,
+      "total": 136
+    },
+    "source_alf_steps_and_config_hash": {
+      "passed": 4,
+      "total": 4
+    },
+    "alf_24_episodes_930_new_steps": {
+      "passed": 1,
+      "total": 1
+    },
+    "replay_270_rows_excluded_from_rollouts": {
+      "passed": 1,
+      "total": 1
+    },
+    "replay_actual_native_state_vs_source": {
+      "passed": 270,
+      "total": 270
+    },
+    "groups_never_cross_prefix_or_condition": {
+      "passed": 12,
+      "total": 12
+    },
+    "prefix_condition_pair_seeds": {
+      "passed": 12,
+      "total": 12
+    },
+    "prefix_and_suffix_budget_50": {
+      "passed": 24,
+      "total": 24
+    },
+    "suffix_contiguous_steps_and_absolute_seed": {
+      "passed": 930,
+      "total": 930
+    },
+    "first_prompt_before_hint_identical_to_old_next_decision": {
+      "passed": 24,
+      "total": 24
+    },
+    "first_native_state_matches_recorded_pickup": {
+      "passed": 24,
+      "total": 24
+    },
+    "new_sw_8_episodes_385_steps": {
+      "passed": 1,
+      "total": 1
+    },
+    "token_ids_reencode_rendered_prompt": {
+      "passed": 1339,
+      "total": 1339
+    },
+    "hint_visible_only_first_decision": {
+      "passed": 620,
+      "total": 620
+    },
+    "no_hint_in_original_condition": {
+      "passed": 310,
+      "total": 310
+    },
+    "unchanged_execution_parser_reproduces_all_actions": {
+      "passed": 1534,
+      "total": 1534
+    },
+    "science_interface_fully_visible_no_omitted_objects": {
+      "passed": 409,
+      "total": 409
+    },
+    "science_observer_has_edges_and_costs_no_moves": {
+      "passed": 409,
+      "total": 409
+    },
+    "science_same_original_reset_observation": {
+      "passed": 8,
+      "total": 8
+    },
+    "science_same_original_reset_native_core": {
+      "passed": 8,
+      "total": 8
+    },
+    "science_reset_first_rollout_no_prefix": {
+      "passed": 8,
+      "total": 8
+    },
+    "science_protocol_only_interface_changed": {
+      "passed": 1,
+      "total": 1
+    },
+    "alfworld_diagnostic_step_ids": {
+      "passed": 1,
+      "total": 1
+    },
+    "alfworld_advantages_match_hpc": {
+      "passed": 1,
+      "total": 1
+    },
+    "scienceworld_diagnostic_step_ids": {
+      "passed": 1,
+      "total": 1
+    },
+    "scienceworld_advantages_match_hpc": {
+      "passed": 1,
+      "total": 1
+    },
+    "raw_unchanged_after_analysis": {
+      "passed": 136,
+      "total": 136
+    }
+  },
+  "alf_arms": {
+    "original": {
+      "episodes": 8,
+      "steps": 310,
+      "first_direct_target_placement": 7,
+      "first_actions": {
+        "move cloth 4 to toilet 1": 7,
+        "examine cloth 4": 1
+      },
+      "sink_arrival_any_inventory": 1,
+      "clean_attempt": 0,
+      "sink_reached": 0,
+      "clean_success": 0,
+      "placement_before_clean": 8,
+      "strict_success": 0
+    },
+    "goal_reminder": {
+      "episodes": 8,
+      "steps": 310,
+      "first_direct_target_placement": 5,
+      "first_actions": {
+        "move cloth 4 to toilet 1": 5,
+        "go to toilet 1": 1,
+        "as been cleaned appropriately.": 1,
+        "examine cloth 4": 1
+      },
+      "sink_arrival_any_inventory": 2,
+      "clean_attempt": 0,
+      "sink_reached": 0,
+      "clean_success": 0,
+      "placement_before_clean": 8,
+      "strict_success": 0
+    },
+    "clean_subgoal": {
+      "episodes": 8,
+      "steps": 310,
+      "first_direct_target_placement": 0,
+      "first_actions": {
+        "examine cloth 4": 4,
+        "take cloth 4 from toilet 1": 1,
+        "clean cloth 4 with water and soap": 1,
+        "clean cloth 4": 1,
+        "/think>\n\naction:\nclean cloth 4": 1
+      },
+      "sink_arrival_any_inventory": 1,
+      "clean_attempt": 2,
+      "sink_reached": 0,
+      "clean_success": 0,
+      "placement_before_clean": 7,
+      "strict_success": 0
+    }
+  },
+  "paired_trajectories": {
+    "goal_reminder": [
+      {
+        "prefix_id": "clean_pickup_p1",
+        "seed": 10000,
+        "identical_action_sequence": true
+      },
+      {
+        "prefix_id": "clean_pickup_p1",
+        "seed": 10001,
+        "identical_action_sequence": true
+      },
+      {
+        "prefix_id": "clean_pickup_p2",
+        "seed": 10000,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p2",
+        "seed": 10001,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p3",
+        "seed": 10000,
+        "identical_action_sequence": true
+      },
+      {
+        "prefix_id": "clean_pickup_p3",
+        "seed": 10001,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p4",
+        "seed": 10000,
+        "identical_action_sequence": true
+      },
+      {
+        "prefix_id": "clean_pickup_p4",
+        "seed": 10001,
+        "identical_action_sequence": true
+      }
+    ],
+    "clean_subgoal": [
+      {
+        "prefix_id": "clean_pickup_p1",
+        "seed": 10000,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p1",
+        "seed": 10001,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p2",
+        "seed": 10000,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p2",
+        "seed": 10001,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p3",
+        "seed": 10000,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p3",
+        "seed": 10001,
+        "identical_action_sequence": true
+      },
+      {
+        "prefix_id": "clean_pickup_p4",
+        "seed": 10000,
+        "identical_action_sequence": false
+      },
+      {
+        "prefix_id": "clean_pickup_p4",
+        "seed": 10001,
+        "identical_action_sequence": false
+      }
+    ]
+  },
+  "science_task_detail": {
+    "power-component/7": {
+      "steps": 185,
+      "connect_attempts": 5,
+      "connect_feedback": {
+        "No known action matches that input.": 5
+      },
+      "connect_outcomes": {
+        "unmatched_command": 5
+      },
+      "score_changes": [
+        {
+          "analysis_step_id": "60bfe692-2850-4903-8799-833c33056051:10",
+          "turn": 11,
+          "action": "go through the art studio door",
+          "before": 0,
+          "after": 7,
+          "feedback": "You move through the door to the art studio."
+        },
+        {
+          "analysis_step_id": "64595307-d0a8-4242-81f1-7458a380c238:18",
+          "turn": 19,
+          "action": "go greenhouse",
+          "before": 0,
+          "after": 7,
+          "feedback": "You move to the greenhouse."
+        },
+        {
+          "analysis_step_id": "64595307-d0a8-4242-81f1-7458a380c238:34",
+          "turn": 35,
+          "action": "focus on jug",
+          "before": 7,
+          "after": -100,
+          "feedback": "You focus on the jug."
+        },
+        {
+          "analysis_step_id": "e27917ba-bead-465f-bf69-029e7052e646:49",
+          "turn": 50,
+          "action": "go workshop",
+          "before": 0,
+          "after": 13,
+          "feedback": "You move to the workshop."
+        },
+        {
+          "analysis_step_id": "60bfe692-2850-4903-8799-833c33056051:49",
+          "turn": 50,
+          "action": "focus on jug",
+          "before": 7,
+          "after": -100,
+          "feedback": "You focus on the jug."
+        }
+      ]
+    },
+    "power-component-renewable-vs-nonrenewable-energy/5": {
+      "steps": 200,
+      "connect_attempts": 113,
+      "connect_feedback": {
+        "Connections must specify specific points of contact on unpolarized electrical components (e.g. terminal 1, terminal 2)": 42,
+        "Connections must specify specific points of contact on polarized electrical components (e.g. anode, cathode)": 10,
+        "No known action matches that input.": 61
+      },
+      "connect_outcomes": {
+        "object_or_endpoint_resolution_failed": 52,
+        "unmatched_command": 61
+      },
+      "score_changes": [
+        {
+          "analysis_step_id": "62e390d2-1b00-4bad-855c-8f41fe7bf9ab:14",
+          "turn": 15,
+          "action": "focus on green light bulb",
+          "before": 5,
+          "after": 38,
+          "feedback": "You focus on the green light bulb."
+        },
+        {
+          "analysis_step_id": "a920a3d0-7b56-4f95-9c7b-42954a22b718:22",
+          "turn": 23,
+          "action": "focus on green light bulb",
+          "before": 5,
+          "after": 38,
+          "feedback": "You focus on the green light bulb."
+        },
+        {
+          "analysis_step_id": "99274cdd-06a5-43f8-b2c7-93aa3b3c5a56:28",
+          "turn": 29,
+          "action": "focus on green light bulb",
+          "before": 5,
+          "after": 38,
+          "feedback": "You focus on the green light bulb."
+        }
+      ]
+    }
+  },
+  "alf_overall": {
+    "episodes": 24,
+    "active_steps": 930,
+    "strict_success": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 24,
+      "unknown_count": 0
+    },
+    "budget_exhaustion": {
+      "value": 1.0,
+      "numerator": 24,
+      "denominator": 24,
+      "unknown_count": 0
+    },
+    "format_compliance": {
+      "value": 0.7935483870967742,
+      "numerator": 738,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "usable_action": {
+      "value": 0.9903225806451613,
+      "numerator": 921,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "no_match": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "execution_unknown": {
+      "value": 0.36129032258064514,
+      "numerator": 336,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "input_truncated": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "output_limited": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "generated_tokens": 67153,
+    "execution_counts": {
+      "unknown": 336,
+      "precondition_blocked": 420,
+      "accepted_state_change": 174
+    },
+    "generic_feedback_pre_anchor": {
+      "value": 0.4397849462365591,
+      "numerator": 409,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "final_native_scores": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "initial_native_scores": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_native_score": 0.0,
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "nonzero_joint_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "alternative_action_coverage": {
+      "value": 0.6043010752688172,
+      "numerator": 562,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "normal_anchor_support": {
+      "value": 0.4932821497120921,
+      "numerator": 257,
+      "denominator": 521,
+      "unknown_count": 0
+    },
+    "supported_with_nonzero_AS": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "mixed_terminal_group_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 12,
+      "unknown_count": 0
+    }
+  },
+  "science_old_overall": {
+    "episodes": 8,
+    "active_steps": 219,
+    "strict_success": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 8,
+      "unknown_count": 0
+    },
+    "budget_exhaustion": {
+      "value": 0.375,
+      "numerator": 3,
+      "denominator": 8,
+      "unknown_count": 0
+    },
+    "format_compliance": {
+      "value": 0.9497716894977168,
+      "numerator": 208,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "usable_action": {
+      "value": 0.958904109589041,
+      "numerator": 210,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "no_match": {
+      "value": 0.7808219178082192,
+      "numerator": 171,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "execution_unknown": {
+      "value": 0.091324200913242,
+      "numerator": 20,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "input_truncated": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "output_limited": {
+      "value": 0.0045662100456621,
+      "numerator": 1,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "generated_tokens": 11110,
+    "execution_counts": {
+      "unmatched_command": 171,
+      "unknown": 20,
+      "accepted_read_or_observation": 8,
+      "precondition_blocked": 14,
+      "object_or_endpoint_resolution_failed": 6
+    },
+    "generic_feedback_pre_anchor": {
+      "value": 0.771689497716895,
+      "numerator": 169,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "final_native_scores": [
+      0,
+      -100,
+      -100,
+      -100,
+      -100,
+      38,
+      38,
+      -100
+    ],
+    "initial_native_scores": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      5,
+      5,
+      5
+    ],
+    "max_native_score": 38,
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "nonzero_joint_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "alternative_action_coverage": {
+      "value": 0.9223744292237442,
+      "numerator": 202,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "normal_anchor_support": {
+      "value": 0.84,
+      "numerator": 42,
+      "denominator": 50,
+      "unknown_count": 0
+    },
+    "supported_with_nonzero_AS": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 219,
+      "unknown_count": 0
+    },
+    "mixed_terminal_group_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 2,
+      "unknown_count": 0
+    }
+  },
+  "science_new_overall": {
+    "episodes": 8,
+    "active_steps": 385,
+    "strict_success": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 8,
+      "unknown_count": 0
+    },
+    "budget_exhaustion": {
+      "value": 0.75,
+      "numerator": 6,
+      "denominator": 8,
+      "unknown_count": 0
+    },
+    "format_compliance": {
+      "value": 0.4779220779220779,
+      "numerator": 184,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "usable_action": {
+      "value": 0.6727272727272727,
+      "numerator": 259,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "no_match": {
+      "value": 0.7194805194805195,
+      "numerator": 277,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "execution_unknown": {
+      "value": 0.10909090909090909,
+      "numerator": 42,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "input_truncated": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "output_limited": {
+      "value": 0.02077922077922078,
+      "numerator": 8,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "generated_tokens": 36213,
+    "execution_counts": {
+      "unmatched_command": 277,
+      "accepted_state_change": 6,
+      "accepted_read_or_observation": 5,
+      "unknown": 42,
+      "precondition_blocked": 3,
+      "object_or_endpoint_resolution_failed": 52
+    },
+    "generic_feedback_pre_anchor": {
+      "value": 0.7090909090909091,
+      "numerator": 273,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "final_native_scores": [
+      -100,
+      0,
+      13,
+      -100,
+      38,
+      38,
+      38,
+      5
+    ],
+    "initial_native_scores": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      5,
+      5,
+      5
+    ],
+    "max_native_score": 38,
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "nonzero_joint_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "alternative_action_coverage": {
+      "value": 0.43896103896103894,
+      "numerator": 169,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "normal_anchor_support": {
+      "value": 0.41964285714285715,
+      "numerator": 47,
+      "denominator": 112,
+      "unknown_count": 0
+    },
+    "supported_with_nonzero_AS": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 385,
+      "unknown_count": 0
+    },
+    "mixed_terminal_group_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 2,
+      "unknown_count": 0
+    }
+  },
+  "science_old_tasks": {
+    "power-component-renewable-vs-nonrenewable-energy/5|root_original": {
+      "episodes": 4,
+      "active_steps": 118,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 0.5,
+        "numerator": 2,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.940677966101695,
+        "numerator": 111,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.940677966101695,
+        "numerator": 111,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.7711864406779662,
+        "numerator": 91,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.1440677966101695,
+        "numerator": 17,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.00847457627118644,
+        "numerator": 1,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "generated_tokens": 6532,
+      "execution_counts": {
+        "object_or_endpoint_resolution_failed": 6,
+        "unmatched_command": 91,
+        "unknown": 17,
+        "accepted_read_or_observation": 4
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.7627118644067796,
+        "numerator": 90,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        -100,
+        38,
+        38,
+        -100
+      ],
+      "initial_native_scores": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "max_native_score": 38,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.8983050847457628,
+        "numerator": 106,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.7857142857142857,
+        "numerator": 22,
+        "denominator": 28,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 118,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "has_connection": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "target_focused": {
+        "value": 0.5,
+        "numerator": 2,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "workshop_reached": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "positive_score_no_connection": {
+        "value": 0.5,
+        "numerator": 2,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "connect_attempt_count": 40,
+      "connect_success_count": 0,
+      "connect_success_per_attempt": 0.0
+    },
+    "power-component/7|root_original": {
+      "episodes": 4,
+      "active_steps": 101,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 0.25,
+        "numerator": 1,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.9603960396039604,
+        "numerator": 97,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9801980198019802,
+        "numerator": 99,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.7920792079207921,
+        "numerator": 80,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.0297029702970297,
+        "numerator": 3,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "generated_tokens": 4578,
+      "execution_counts": {
+        "unmatched_command": 80,
+        "unknown": 3,
+        "accepted_read_or_observation": 4,
+        "precondition_blocked": 14
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.7821782178217822,
+        "numerator": 79,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0,
+        -100,
+        -100,
+        -100
+      ],
+      "initial_native_scores": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_native_score": 0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.9504950495049505,
+        "numerator": 96,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.9090909090909091,
+        "numerator": 20,
+        "denominator": 22,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 101,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "has_connection": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "target_focused": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "workshop_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "positive_score_no_connection": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "connect_attempt_count": 2,
+      "connect_success_count": 0,
+      "connect_success_per_attempt": 0.0
+    }
+  },
+  "science_new_tasks": {
+    "power-component-renewable-vs-nonrenewable-energy/5|root_original": {
+      "episodes": 4,
+      "active_steps": 200,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.72,
+        "numerator": 144,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.785,
+        "numerator": 157,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.65,
+        "numerator": 130,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.085,
+        "numerator": 17,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.01,
+        "numerator": 2,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "generated_tokens": 20459,
+      "execution_counts": {
+        "object_or_endpoint_resolution_failed": 52,
+        "unmatched_command": 130,
+        "unknown": 17,
+        "accepted_read_or_observation": 1
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.63,
+        "numerator": 126,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        38,
+        38,
+        38,
+        5
+      ],
+      "initial_native_scores": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "max_native_score": 38,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.68,
+        "numerator": 136,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.6351351351351351,
+        "numerator": 47,
+        "denominator": 74,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 200,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "has_connection": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "target_focused": {
+        "value": 0.75,
+        "numerator": 3,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "workshop_reached": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "positive_score_no_connection": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "connect_attempt_count": 113,
+      "connect_success_count": 0,
+      "connect_success_per_attempt": 0.0
+    },
+    "power-component/7|root_original": {
+      "episodes": 4,
+      "active_steps": 185,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 0.5,
+        "numerator": 2,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.21621621621621623,
+        "numerator": 40,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.5513513513513514,
+        "numerator": 102,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.7945945945945946,
+        "numerator": 147,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.13513513513513514,
+        "numerator": 25,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.032432432432432434,
+        "numerator": 6,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "generated_tokens": 15754,
+      "execution_counts": {
+        "unmatched_command": 147,
+        "accepted_state_change": 6,
+        "accepted_read_or_observation": 4,
+        "unknown": 25,
+        "precondition_blocked": 3
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.7945945945945946,
+        "numerator": 147,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        -100,
+        0,
+        13,
+        -100
+      ],
+      "initial_native_scores": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_native_score": 13,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.1783783783783784,
+        "numerator": 33,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 38,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 185,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "has_connection": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "target_focused": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "workshop_reached": {
+        "value": 0.25,
+        "numerator": 1,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "positive_score_no_connection": {
+        "value": 0.25,
+        "numerator": 1,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "connect_attempt_count": 5,
+      "connect_success_count": 0,
+      "connect_success_per_attempt": 0.0
+    }
+  },
+  "diagnostic_correction": {
+    "affected_alf_steps": 651,
+    "old_usable_count": 270,
+    "corrected_usable_count": 921,
+    "total_steps": 930,
+    "execution_parser_changed": false,
+    "hpc_swanlab_metrics_overwritten": false
+  },
+  "giGPO_recompute": {
+    "alfworld": {
+      "steps": 930,
+      "max_abs_error_vs_hpc": 0.0,
+      "all_advantages_zero": true
+    },
+    "scienceworld": {
+      "steps": 385,
+      "max_abs_error_vs_hpc": 0.0,
+      "all_advantages_zero": true
+    }
+  },
+  "new_science_all_observed_edges_empty": true,
+  "scope": "one ALF task, four prefixes, two paired seeds; two ScienceWorld instances, four seeds; descriptive frozen-policy results"
+}

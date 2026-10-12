@@ -1,0 +1,28 @@
+{
+  "source_archive_sha256": "7a4810dbd2a8cad0308ba6a5fef827eb7e182627cea26850a5e8af33776d8c24",
+  "hpc_sampling_commit": "4260b867bbbe122ec791298d9ef11fca3c19b9af",
+  "full_local_review": "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\post-p0-20261012\\review-hpc-159709-159710",
+  "scope": "Small derived audit bundle. Full raw trajectories remain in the local/HPC paths in REPORT.md.",
+  "files": {
+    "REPORT.md": "bc3bfde54844fe1992fe5a9c8b4f12f901670bdfba17006b8c7c21de7aca0a75",
+    "NEXT_STEPS.md": "cd01e98fc08ddca529540e8ce449b78d049e9756ad4949fcd12951b7fd1fcf5e",
+    "review_summary.json": "f83d42fc07ae76a62608547134b457b63084878afce383de2cbec8c059acc798",
+    "audit_checks.json": "ff8a174ada48e1c5422b04ef4125b4973374f1e38111f094ec269f1e640bf959",
+    "cases.json": "6ba1ff9eff22b1f5b652e7cd9ee3808d61d3d01e4bb2e2e7761820fe94d74d33",
+    "alf_condition_summary.csv": "baafe61cad1ab3a291afc6050f16ed98fa7da2c7227efa53ac2a9988e63c35fb",
+    "diagnostic_corrections.jsonl": "60f413014566039a7ac2b15a3eb132b3f57bd6bffc426dd4ef788527af2dd1ba",
+    "actual_local_commands.txt": "684766e5b6a79d9acf12a2230159fbdaefb2329727e0d266cb187508f9ef230c",
+    "alfworld/analysis.json": "d7ec2cba525f598637c168e77cddb6fd40099b3f470256b132a3ebb1e610f48a",
+    "alfworld/episode_outcomes.json": "ba0914bf2617d55da1af2291bbb6439851e4d4410caef7fe3564f79a303483ba",
+    "alfworld/diagnostic_checks.json": "07c67dd9bfa53080fa162d7712206db393338d43a499e7172486dfe64e8fc0d4",
+    "science-comparison/task_metrics.csv": "6de076b8e08141c7ed565f7b7b25f0100add3326ee34f9d70ef34eda71523c90",
+    "science-comparison/comparison_config_diff.json": "cefdc97632f1d4ad8a79922c2f84b715b5886a2cbab60a2d30de4d6d23444043",
+    "science-comparison/new_reanalysis/diagnostic_checks.json": "07c67dd9bfa53080fa162d7712206db393338d43a499e7172486dfe64e8fc0d4",
+    "figures/01_alf_preparation.png": "6e6b8ac29107fbea20dd457e5f5286e44a5d64ffc1a87d9ccc8ad46dd7da062b",
+    "figures/01_alf_preparation.svg": "7c1d5acd42b2b4a207ed3b7ae4ad5139512de8ae04d09e7200c53f0834de8666",
+    "figures/02_science_old_new.png": "e0772abca6259ce9bcca5d0494c1f309cff946299ac6136f960ad5ccc4bfb892",
+    "figures/02_science_old_new.svg": "ca191a28cfbcfc149b559fc6b94409fd983f52a929d947db76e27d47b4dba98c",
+    "figures/03_science_format_and_scores.png": "52d61dce04c6f72d0bc9603c13c676e8c97b1147ae6ca05f09314425e303b29e",
+    "figures/03_science_format_and_scores.svg": "6f4717a560acce8f99e143b2277718760859fef0752cc22bd3fbb08482dc983d"
+  }
+}

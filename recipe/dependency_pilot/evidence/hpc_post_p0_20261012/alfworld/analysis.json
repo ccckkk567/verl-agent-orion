@@ -1,0 +1,2709 @@
+{
+  "analysis_version": "post_p0_evidence_v2_case_insensitive_tags",
+  "run_id": "alfworld-p1-20261012T131801Z-7db172",
+  "env": "alfworld",
+  "execution_kind": "alf_p1",
+  "subsets": {
+    "clean_pickup_p1|clean_subgoal": {
+      "episodes": 2,
+      "active_steps": 78,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.717948717948718,
+        "numerator": 56,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9871794871794872,
+        "numerator": 77,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.358974358974359,
+        "numerator": 28,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5326,
+      "execution_counts": {
+        "unknown": 28,
+        "precondition_blocked": 36,
+        "accepted_state_change": 14
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.44871794871794873,
+        "numerator": 35,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.38461538461538464,
+        "numerator": 30,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.23255813953488372,
+        "numerator": 10,
+        "denominator": 43,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 0.5,
+        "numerator": 1,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p1|goal_reminder": {
+      "episodes": 2,
+      "active_steps": 78,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.717948717948718,
+        "numerator": 56,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9743589743589743,
+        "numerator": 76,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.3717948717948718,
+        "numerator": 29,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5951,
+      "execution_counts": {
+        "accepted_state_change": 11,
+        "unknown": 29,
+        "precondition_blocked": 38
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.47435897435897434,
+        "numerator": 37,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.5128205128205128,
+        "numerator": 40,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.36585365853658536,
+        "numerator": 15,
+        "denominator": 41,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p1|original": {
+      "episodes": 2,
+      "active_steps": 78,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.717948717948718,
+        "numerator": 56,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9743589743589743,
+        "numerator": 76,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.3717948717948718,
+        "numerator": 29,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5916,
+      "execution_counts": {
+        "accepted_state_change": 11,
+        "unknown": 29,
+        "precondition_blocked": 38
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.47435897435897434,
+        "numerator": 37,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.5128205128205128,
+        "numerator": 40,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.36585365853658536,
+        "numerator": 15,
+        "denominator": 41,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 78,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p2|clean_subgoal": {
+      "episodes": 2,
+      "active_steps": 70,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8428571428571429,
+        "numerator": 59,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 1.0,
+        "numerator": 70,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.38571428571428573,
+        "numerator": 27,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5064,
+      "execution_counts": {
+        "unknown": 27,
+        "precondition_blocked": 25,
+        "accepted_state_change": 18
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.35714285714285715,
+        "numerator": 25,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.6142857142857143,
+        "numerator": 43,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.4444444444444444,
+        "numerator": 20,
+        "denominator": 45,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.5,
+        "numerator": 1,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p2|goal_reminder": {
+      "episodes": 2,
+      "active_steps": 70,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8571428571428571,
+        "numerator": 60,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9857142857142858,
+        "numerator": 69,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.15714285714285714,
+        "numerator": 11,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5104,
+      "execution_counts": {
+        "precondition_blocked": 44,
+        "unknown": 11,
+        "accepted_state_change": 15
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.6142857142857143,
+        "numerator": 43,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.7714285714285715,
+        "numerator": 54,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.5925925925925926,
+        "numerator": 16,
+        "denominator": 27,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p2|original": {
+      "episodes": 2,
+      "active_steps": 70,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.7714285714285715,
+        "numerator": 54,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 1.0,
+        "numerator": 70,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.38571428571428573,
+        "numerator": 27,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5093,
+      "execution_counts": {
+        "accepted_state_change": 13,
+        "precondition_blocked": 30,
+        "unknown": 27
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.42857142857142855,
+        "numerator": 30,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.6571428571428571,
+        "numerator": 46,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.525,
+        "numerator": 21,
+        "denominator": 40,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 70,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p3|clean_subgoal": {
+      "episodes": 2,
+      "active_steps": 94,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8191489361702128,
+        "numerator": 77,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 1.0,
+        "numerator": 94,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.4148936170212766,
+        "numerator": 39,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "generated_tokens": 6606,
+      "execution_counts": {
+        "unknown": 39,
+        "precondition_blocked": 34,
+        "accepted_state_change": 21
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.35106382978723405,
+        "numerator": 33,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.7446808510638298,
+        "numerator": 70,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.7540983606557377,
+        "numerator": 46,
+        "denominator": 61,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p3|goal_reminder": {
+      "episodes": 2,
+      "active_steps": 94,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.7978723404255319,
+        "numerator": 75,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9893617021276596,
+        "numerator": 93,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.3404255319148936,
+        "numerator": 32,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "generated_tokens": 6709,
+      "execution_counts": {
+        "accepted_state_change": 16,
+        "precondition_blocked": 46,
+        "unknown": 32
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.4787234042553192,
+        "numerator": 45,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.5531914893617021,
+        "numerator": 52,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.40816326530612246,
+        "numerator": 20,
+        "denominator": 49,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p3|original": {
+      "episodes": 2,
+      "active_steps": 94,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.7872340425531915,
+        "numerator": 74,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9893617021276596,
+        "numerator": 93,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.43617021276595747,
+        "numerator": 41,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "generated_tokens": 6654,
+      "execution_counts": {
+        "accepted_state_change": 14,
+        "unknown": 41,
+        "precondition_blocked": 39
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.39361702127659576,
+        "numerator": 37,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.5106382978723404,
+        "numerator": 48,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.40350877192982454,
+        "numerator": 23,
+        "denominator": 57,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 94,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p4|clean_subgoal": {
+      "episodes": 2,
+      "active_steps": 68,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8676470588235294,
+        "numerator": 59,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.9852941176470589,
+        "numerator": 67,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.3382352941176471,
+        "numerator": 23,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "generated_tokens": 5313,
+      "execution_counts": {
+        "precondition_blocked": 38,
+        "accepted_state_change": 7,
+        "unknown": 23
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.5441176470588235,
+        "numerator": 37,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.6617647058823529,
+        "numerator": 45,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.4838709677419355,
+        "numerator": 15,
+        "denominator": 31,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.5,
+        "numerator": 1,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p4|goal_reminder": {
+      "episodes": 2,
+      "active_steps": 68,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8235294117647058,
+        "numerator": 56,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 1.0,
+        "numerator": 68,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.36764705882352944,
+        "numerator": 25,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "generated_tokens": 4705,
+      "execution_counts": {
+        "accepted_state_change": 17,
+        "unknown": 25,
+        "precondition_blocked": 26
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.36764705882352944,
+        "numerator": 25,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.6911764705882353,
+        "numerator": 47,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.6511627906976745,
+        "numerator": 28,
+        "denominator": 43,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "clean_pickup_p4|original": {
+      "episodes": 2,
+      "active_steps": 68,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.8235294117647058,
+        "numerator": 56,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 1.0,
+        "numerator": 68,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.36764705882352944,
+        "numerator": 25,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "generated_tokens": 4712,
+      "execution_counts": {
+        "accepted_state_change": 17,
+        "unknown": 25,
+        "precondition_blocked": 26
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.36764705882352944,
+        "numerator": 25,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0.0,
+        0.0
+      ],
+      "initial_native_scores": [
+        0.0,
+        0.0
+      ],
+      "max_native_score": 0.0,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.6911764705882353,
+        "numerator": 47,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.6511627906976745,
+        "numerator": 28,
+        "denominator": 43,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 68,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 1,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_attempt": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "original_cloth_cleaned": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "unknown_count": 0
+      },
+      "clean_then_target": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    }
+  },
+  "overall": {
+    "episodes": 24,
+    "active_steps": 930,
+    "strict_success": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 24,
+      "unknown_count": 0
+    },
+    "budget_exhaustion": {
+      "value": 1.0,
+      "numerator": 24,
+      "denominator": 24,
+      "unknown_count": 0
+    },
+    "format_compliance": {
+      "value": 0.7935483870967742,
+      "numerator": 738,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "usable_action": {
+      "value": 0.9903225806451613,
+      "numerator": 921,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "no_match": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "execution_unknown": {
+      "value": 0.36129032258064514,
+      "numerator": 336,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "input_truncated": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "output_limited": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "generated_tokens": 67153,
+    "execution_counts": {
+      "unknown": 336,
+      "precondition_blocked": 420,
+      "accepted_state_change": 174
+    },
+    "generic_feedback_pre_anchor": {
+      "value": 0.4397849462365591,
+      "numerator": 409,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "final_native_scores": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "initial_native_scores": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_native_score": 0.0,
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "nonzero_joint_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "alternative_action_coverage": {
+      "value": 0.6043010752688172,
+      "numerator": 562,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "normal_anchor_support": {
+      "value": 0.4932821497120921,
+      "numerator": 257,
+      "denominator": 521,
+      "unknown_count": 0
+    },
+    "supported_with_nonzero_AS": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 930,
+      "unknown_count": 0
+    },
+    "mixed_terminal_group_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 12,
+      "unknown_count": 0
+    }
+  },
+  "episodes": [
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "312d8432-1227-4d06-8406-1cd7b890af1e",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10000,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 5,
+      "put_success_count": 5,
+      "loop_take_put_events": 4
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "feaf4b58-3322-4cf4-8601-2671aa2ce50c",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10001,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "9df87078-1f49-49e6-b9c5-302ea53ebfd2",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "original",
+      "continuation_seed": 10000,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 2,
+      "put_success_count": 3,
+      "loop_take_put_events": 1
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "c3f16f9c-687f-4830-aa5f-37d92820375d",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "original",
+      "continuation_seed": 10001,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "035435ec-8023-4c45-bbc2-bc5c1fd2fc5a",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "goal_reminder",
+      "continuation_seed": 10000,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 2,
+      "put_success_count": 3,
+      "loop_take_put_events": 1
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "bfc367bb-7379-43dd-8707-ec18fa395444",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p3",
+      "condition": "goal_reminder",
+      "continuation_seed": 10001,
+      "remaining_turns": 47,
+      "agent_turns": 47,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "24577d32-98d1-4f01-bcac-ea5ae1b4051c",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "original",
+      "continuation_seed": 10000,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 3,
+      "put_success_count": 4,
+      "loop_take_put_events": 2
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "19494c8f-994d-43fd-af93-5882d45be3cb",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "original",
+      "continuation_seed": 10001,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 1,
+      "put_success_count": 1,
+      "loop_take_put_events": 0
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "00260dd2-2722-4c22-9c5c-abf01875e864",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "goal_reminder",
+      "continuation_seed": 10000,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 3,
+      "put_success_count": 4,
+      "loop_take_put_events": 2
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "4cb39adc-5c25-4eb9-9e74-743eec88242d",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "goal_reminder",
+      "continuation_seed": 10001,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 1,
+      "put_success_count": 1,
+      "loop_take_put_events": 0
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "aff12a9c-a56a-4260-ac7d-8b2e67edf535",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10000,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 5,
+      "put_success_count": 5,
+      "loop_take_put_events": 4
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "fa2a3977-f5a3-4268-9a8c-ffffef1cf104",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p1",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10001,
+      "remaining_turns": 39,
+      "agent_turns": 39,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": false,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 2,
+      "put_success_count": 2,
+      "loop_take_put_events": 1
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "0cd5469d-cc3d-4a54-bde8-ff8feae56a4f",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "goal_reminder",
+      "continuation_seed": 10000,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "bd0c7a6a-f3ad-433a-aac0-7afb864c92b0",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "goal_reminder",
+      "continuation_seed": 10001,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 3,
+      "put_success_count": 3,
+      "loop_take_put_events": 2
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "4ad0ddb7-e759-44ff-8d1c-55a40f25f556",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "original",
+      "continuation_seed": 10000,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 2,
+      "put_success_count": 2,
+      "loop_take_put_events": 1
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "64739d5d-3f76-41e6-837b-f28aaf6fad8a",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "original",
+      "continuation_seed": 10001,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "b10c3f38-0a71-451b-b48c-afe90f412531",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10000,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 5,
+      "put_success_count": 6,
+      "loop_take_put_events": 4
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "40a66edd-188a-404c-b1b1-554fa56dd84d",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p2",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10001,
+      "remaining_turns": 35,
+      "agent_turns": 35,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": true,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 3,
+      "put_success_count": 4,
+      "loop_take_put_events": 2
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "82d4fcfe-b4fd-44b0-9051-e803b7a8c618",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "goal_reminder",
+      "continuation_seed": 10000,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "3795b6ca-e90a-4854-a1f5-ab15b63e11eb",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "goal_reminder",
+      "continuation_seed": 10001,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 4,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "2d86b411-8165-4999-83ba-c76837d55b14",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10000,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": true,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 2,
+      "put_success_count": 2,
+      "loop_take_put_events": 1
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "dc702ab7-d820-410e-b797-cc5186571c7c",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "clean_subgoal",
+      "continuation_seed": 10001,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 1,
+      "put_success_count": 2,
+      "loop_take_put_events": 0
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "b20e2cf4-7ab7-40bf-940a-5aa7d2076c70",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "original",
+      "continuation_seed": 10000,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 5,
+      "loop_take_put_events": 3
+    },
+    {
+      "run_id": "alfworld-p1-20261012T131801Z-7db172",
+      "traj_uid": "c19f05da-9d46-4c93-af96-e9062f458878",
+      "task_instance_id": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089",
+      "prefix_id": "clean_pickup_p4",
+      "condition": "original",
+      "continuation_seed": 10001,
+      "remaining_turns": 34,
+      "agent_turns": 34,
+      "status": "complete",
+      "strict_success": false,
+      "termination_reason": "budget_truncated",
+      "native_score": 0.0,
+      "initial_native_score": 0.0,
+      "sink_reached": false,
+      "clean_attempt": false,
+      "clean_success": false,
+      "original_cloth_cleaned": false,
+      "placement_before_clean": true,
+      "clean_then_target": false,
+      "clean_first_turn": null,
+      "clean_first_turn_censored": true,
+      "take_success_count": 4,
+      "put_success_count": 4,
+      "loop_take_put_events": 3
+    }
+  ],
+  "policy_updated": false,
+  "advantages": "unchanged upstream, step-weighted episode mean, exact pre-observation groups; incomplete groups excluded",
+  "unknown_policy": "null is excluded from known-label denominator; incomplete negative events censored",
+  "loop_rule": "max(0,min(successful suffix takes,successful suffix puts)-1); replay excluded",
+  "arms": {
+    "original": {
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 8,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "clean_success_prefix_equal_mean": 0.0,
+      "strict_success_prefix_equal_mean": 0.0
+    },
+    "goal_reminder": {
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 1.0,
+        "numerator": 8,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "clean_success_prefix_equal_mean": 0.0,
+      "strict_success_prefix_equal_mean": 0.0
+    },
+    "clean_subgoal": {
+      "clean_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "sink_reached": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "placement_before_clean": {
+        "value": 0.875,
+        "numerator": 7,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "clean_success_prefix_equal_mean": 0.0,
+      "strict_success_prefix_equal_mean": 0.0
+    }
+  },
+  "arm_differences": {
+    "clean_subgoal-original": {
+      "clean_success": 0.0,
+      "strict_success": 0.0
+    },
+    "clean_subgoal-goal_reminder": {
+      "clean_success": 0.0,
+      "strict_success": 0.0
+    },
+    "goal_reminder-original": {
+      "clean_success": 0.0,
+      "strict_success": 0.0
+    }
+  }
+}

@@ -8,7 +8,7 @@ import re
 from .common import read_jsonl, write_json
 from .post_interface import execution_outcome, parser_metadata
 
-VERSION='post_p0_evidence_v1'
+VERSION='post_p0_evidence_v2_case_insensitive_tags'
 GENERIC={'No known action matches that input.','Nothing happens.'}
 
 def rate(values):

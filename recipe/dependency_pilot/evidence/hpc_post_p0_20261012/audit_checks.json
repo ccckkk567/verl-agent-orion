@@ -1,0 +1,110 @@
+{
+  "imported_file_sha256": {
+    "passed": 136,
+    "total": 136
+  },
+  "source_alf_steps_and_config_hash": {
+    "passed": 4,
+    "total": 4
+  },
+  "alf_24_episodes_930_new_steps": {
+    "passed": 1,
+    "total": 1
+  },
+  "replay_270_rows_excluded_from_rollouts": {
+    "passed": 1,
+    "total": 1
+  },
+  "replay_actual_native_state_vs_source": {
+    "passed": 270,
+    "total": 270
+  },
+  "groups_never_cross_prefix_or_condition": {
+    "passed": 12,
+    "total": 12
+  },
+  "prefix_condition_pair_seeds": {
+    "passed": 12,
+    "total": 12
+  },
+  "prefix_and_suffix_budget_50": {
+    "passed": 24,
+    "total": 24
+  },
+  "suffix_contiguous_steps_and_absolute_seed": {
+    "passed": 930,
+    "total": 930
+  },
+  "first_prompt_before_hint_identical_to_old_next_decision": {
+    "passed": 24,
+    "total": 24
+  },
+  "first_native_state_matches_recorded_pickup": {
+    "passed": 24,
+    "total": 24
+  },
+  "new_sw_8_episodes_385_steps": {
+    "passed": 1,
+    "total": 1
+  },
+  "token_ids_reencode_rendered_prompt": {
+    "passed": 1339,
+    "total": 1339
+  },
+  "hint_visible_only_first_decision": {
+    "passed": 620,
+    "total": 620
+  },
+  "no_hint_in_original_condition": {
+    "passed": 310,
+    "total": 310
+  },
+  "unchanged_execution_parser_reproduces_all_actions": {
+    "passed": 1534,
+    "total": 1534
+  },
+  "science_interface_fully_visible_no_omitted_objects": {
+    "passed": 409,
+    "total": 409
+  },
+  "science_observer_has_edges_and_costs_no_moves": {
+    "passed": 409,
+    "total": 409
+  },
+  "science_same_original_reset_observation": {
+    "passed": 8,
+    "total": 8
+  },
+  "science_same_original_reset_native_core": {
+    "passed": 8,
+    "total": 8
+  },
+  "science_reset_first_rollout_no_prefix": {
+    "passed": 8,
+    "total": 8
+  },
+  "science_protocol_only_interface_changed": {
+    "passed": 1,
+    "total": 1
+  },
+  "alfworld_diagnostic_step_ids": {
+    "passed": 1,
+    "total": 1
+  },
+  "alfworld_advantages_match_hpc": {
+    "passed": 1,
+    "total": 1
+  },
+  "scienceworld_diagnostic_step_ids": {
+    "passed": 1,
+    "total": 1
+  },
+  "scienceworld_advantages_match_hpc": {
+    "passed": 1,
+    "total": 1
+  },
+  "raw_unchanged_after_analysis": {
+    "passed": 136,
+    "total": 136
+  }
+}

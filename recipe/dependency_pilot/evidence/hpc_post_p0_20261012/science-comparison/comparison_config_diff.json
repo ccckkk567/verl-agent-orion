@@ -1,0 +1,9 @@
+{
+  "other_changes": {},
+  "comparability": "matched_except_interface",
+  "old_profile": "p0_original",
+  "new_profile": "reference_interface_v1",
+  "new_run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+  "old_run_id": "scienceworld-collect-20261012T094001Z-8ecf63",
+  "new_is_full_rep0": true
+}

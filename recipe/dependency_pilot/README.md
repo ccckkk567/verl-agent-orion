@@ -1,6 +1,8 @@
 # Dependency and preparation pilot (P0)
 
-Work only on `exp/dep-prep-pilot-20261012`. Baseline: `24305ac85b5c7456ed2c0f851b12d70bda45823d`. Code, masks, prompts and local outputs are independent of SwanLab availability. See `SOURCES.md`, `metrics_dictionary.md`, and `DECISIONS.md` for semantics and limitations.
+Original P0 branch: `exp/dep-prep-pilot-20261012`; follow-up P1 / ScienceWorld re-P0 branch: `exp/dep-prep-p1-sci-rep0-20261012`. Baseline: `24305ac85b5c7456ed2c0f851b12d70bda45823d`. Code, masks, prompts and local outputs are independent of SwanLab availability. See `SOURCES.md`, `metrics_dictionary.md`, and `DECISIONS.md` for semantics and limitations.
+
+Completed HPC follow-up: [results, figures and cases](evidence/hpc_post_p0_20261012/REPORT.md), [one-page next steps](evidence/hpc_post_p0_20261012/NEXT_STEPS.md). Jobs 159709/159710 produced 24 ALFWorld continuations and 8 full ScienceWorld re-P0 episodes. The downloaded audit corrects a case-sensitive ALFWorld diagnostic label; executed actions, the execution parser, rewards and original raw files remain unchanged.
 
 ## Supported now
 

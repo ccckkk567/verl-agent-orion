@@ -1,0 +1,4 @@
+condition,episodes,steps,first_direct_target_placement,sink_arrival_any_inventory,clean_attempt,sink_reached,clean_success,placement_before_clean,strict_success
+original,8,310,7,1,0,0,0,8,0
+goal_reminder,8,310,5,2,0,0,0,8,0
+clean_subgoal,8,310,0,1,2,0,0,7,0

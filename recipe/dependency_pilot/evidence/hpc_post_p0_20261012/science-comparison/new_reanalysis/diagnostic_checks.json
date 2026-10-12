@@ -1,0 +1,6 @@
+{
+  "status": "diagnostic_recomputed",
+  "reconstruction_max_abs_error": 0.0,
+  "episode_only_matched_max_abs_error": 0.0,
+  "scope": "frozen terminal reward, no invalid-action penalty or KL; not captured training advantages"
+}
