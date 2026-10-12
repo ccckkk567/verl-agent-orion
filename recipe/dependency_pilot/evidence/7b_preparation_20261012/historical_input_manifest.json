@@ -1,0 +1,32 @@
+{
+  "alfworld-root-1p5b": {
+    "source": "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\hpc-20261012\\alfworld-collect-20261012T095303Z-d56e91",
+    "run_id": "alfworld-collect-20261012T095303Z-d56e91",
+    "files": {
+      "environment_provenance.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "episodes.jsonl": "e2dedbaffe7fb454b9931dd125a36c6cbab1fefebcb5fa5151a5b65c9f99aa5b",
+      "resets.jsonl": "85357a57efacdf676fdd887060e1c7c185ae67225d6dfc601200953faa892b8c",
+      "resolved_config.json": "c041dad70844a6e4b47ed4bb355e4cc9076e2f0f224b4909f2cebd73ff91656e",
+      "run_manifest.json": "0d2796af15836095d133760ed5e8bd6e16a9feaba5ec1e7b15b84b75c3bc9f1f",
+      "steps.jsonl": "6e7875be3f26225ff73b068ffb0568573248a11707501f5c9ad7ebf64b6a32c4",
+      "tasks_manifest.jsonl": "5539f1efebea5f04620f4abb5161cc7613e66007b22a574ca94be37fa0082c96"
+    },
+    "source_unchanged": true,
+    "reanalysis_only": true
+  },
+  "scienceworld-reference-1p5b": {
+    "source": "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\post-p0-20261012\\hpc-159709-159710\\scienceworld-rep0-159710",
+    "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+    "files": {
+      "environment_provenance.json": "a35269e0782f9a1497a5eb4962962b609398b54917f0e5e36623a89e858a12f6",
+      "episodes.jsonl": "4073c17662fae6a433bfb0c42309195f8f2a6e4ac07f380e3636f65ee302e897",
+      "resets.jsonl": "35d033845dac2f55c4368b795e55cc6f9e1803b9d63fff66a22d9df46671bf1a",
+      "resolved_config.json": "45d916749db960a119143d5703a9ebb0fcb6b882b5febd52cb4a6466d5e35f6e",
+      "run_manifest.json": "c965b25d7a403fba3489b8c2d879a671b5640f954fd9337d76159ac415bff958",
+      "steps.jsonl": "354b1b003ab0deb2cb568f5612d2a78e2f25ef9bad98446b5f397a32c62560fe",
+      "tasks_manifest.jsonl": "f2647646eb458f144115b13c590ab81ed1a88bfadf56357b0dab6fcd732aaa63"
+    },
+    "source_unchanged": true,
+    "reanalysis_only": true
+  }
+}

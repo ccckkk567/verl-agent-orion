@@ -1,0 +1,174 @@
+[
+  {
+    "run_id": "alfworld-collect-20261012T095303Z-d56e91",
+    "model": "Qwen2.5-1.5B-Instruct",
+    "task": "train/pick_and_place_simple-CreditCard-None-Sofa-220/trial_T20190909_110916_512916|root_original",
+    "strict_success_n": 2,
+    "strict_success_N": 4,
+    "active_steps": 182,
+    "object_pickup": {
+      "value": 0.5,
+      "numerator": 2,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "any_sink_reached": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0,
+      "unknown_count": 0,
+      "not_applicable_count": 4
+    },
+    "sink_reached": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0,
+      "unknown_count": 0,
+      "not_applicable_count": 4
+    },
+    "clean_success": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0,
+      "unknown_count": 0,
+      "not_applicable_count": 4
+    },
+    "first_pickup_next_unclean_placement": {
+      "value": null,
+      "numerator": 0,
+      "denominator": 0,
+      "unknown_count": 0,
+      "not_applicable_count": 4
+    },
+    "normal_anchor_support": {
+      "value": 0.5675675675675675,
+      "numerator": 63,
+      "denominator": 111,
+      "unknown_count": 0
+    },
+    "nonzero_episode_advantage": {
+      "value": 1.0,
+      "numerator": 182,
+      "denominator": 182,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.7142857142857143,
+      "numerator": 130,
+      "denominator": 182,
+      "unknown_count": 0
+    }
+  },
+  {
+    "run_id": "alfworld-collect-20261012T095303Z-d56e91",
+    "model": "Qwen2.5-1.5B-Instruct",
+    "task": "train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089|root_original",
+    "strict_success_n": 0,
+    "strict_success_N": 4,
+    "active_steps": 200,
+    "object_pickup": {
+      "value": 1.0,
+      "numerator": 4,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "any_sink_reached": {
+      "value": 0.25,
+      "numerator": 1,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "sink_reached": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "clean_success": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "first_pickup_next_unclean_placement": {
+      "value": 0.75,
+      "numerator": 3,
+      "denominator": 4,
+      "unknown_count": 0
+    },
+    "normal_anchor_support": {
+      "value": 0.7757009345794392,
+      "numerator": 83,
+      "denominator": 107,
+      "unknown_count": 0
+    },
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 200,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 200,
+      "unknown_count": 0
+    }
+  },
+  {
+    "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+    "model": "Qwen2.5-1.5B-Instruct",
+    "task": "power-component-renewable-vs-nonrenewable-energy/5|root_original",
+    "strict_success_n": 0,
+    "strict_success_N": 4,
+    "active_steps": 200,
+    "connect_attempt_count": 113,
+    "connect_success_count": 0,
+    "normal_anchor_support": {
+      "value": 0.8688524590163934,
+      "numerator": 53,
+      "denominator": 61,
+      "unknown_count": 0
+    },
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 200,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 200,
+      "unknown_count": 0
+    }
+  },
+  {
+    "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+    "model": "Qwen2.5-1.5B-Instruct",
+    "task": "power-component/7|root_original",
+    "strict_success_n": 0,
+    "strict_success_N": 4,
+    "active_steps": 185,
+    "connect_attempt_count": 5,
+    "connect_success_count": 0,
+    "normal_anchor_support": {
+      "value": 0.64,
+      "numerator": 16,
+      "denominator": 25,
+      "unknown_count": 0
+    },
+    "nonzero_episode_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 185,
+      "unknown_count": 0
+    },
+    "nonzero_step_advantage": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 185,
+      "unknown_count": 0
+    }
+  }
+]

@@ -6,6 +6,8 @@ import json
 import os
 from pathlib import Path
 import random
+import shutil
+import shlex
 import subprocess
 import sys
 import traceback
@@ -24,6 +26,88 @@ PREFIXES = [
 ]
 HINTS = {'original': '', 'goal_reminder': 'Reminder: your task is to put a clean cloth in toilet.',
          'clean_subgoal': 'Before putting the cloth in the toilet, make sure the cloth has been cleaned.'}
+
+BASELINE_IDS = {'alfworld': 'alfworld-collect-20261012T095303Z-d56e91',
+    'scienceworld': 'scienceworld-rep0-20261012T132744Z-7d238f'}
+ROOT_TASKS = {'alfworld': {
+    'train/pick_and_place_simple-CreditCard-None-Sofa-220/trial_T20190909_110916_512916',
+    'train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089'},
+    'scienceworld': {'power-component/7','power-component-renewable-vs-nonrenewable-energy/5'}}
+
+
+def root_7b_config(source, model_path, run_id, out, tracking='cloud'):
+    old = json.loads((source/'resolved_config.json').read_text(encoding='utf8'))
+    env = old['env']
+    if old['run_id'] != BASELINE_IDS.get(env):
+        raise ValueError('7B P0 requires the specified historical root P0, not P1 or smoke')
+    from .post_audit import MATCHED_PROTOCOL
+    expected = {**MATCHED_PROTOCOL, 'seed':0, 'dynamic_filtering':False}
+    if any(old.get(k) != v for k,v in expected.items()):
+        raise ValueError('Historical protocol changed; do not silently alter the comparison')
+    tasks = read_jsonl(source/'tasks_manifest.jsonl')
+    if len(tasks) != 2 or {t['task_instance_id'] for t in tasks} != ROOT_TASKS[env]:
+        raise ValueError('Wrong task manifest')
+    if env == 'scienceworld' and (old.get('prompt_profile') != 'reference_interface_v1'
+        or old.get('parser_profile') != 'p0_original_unchanged'
+        or old.get('interface_lock',{}).get('status') != 'locked_after_real_smoke'):
+        raise ValueError('ScienceWorld reference interface was not locked in the baseline')
+    if not model_path: raise ValueError('Explicit local 7B --model-path is required')
+    pinned = json.loads(Path(__file__).with_name('configs').joinpath('model_7b.json').read_text())
+    config = copy.deepcopy(old)
+    for key in ['chat_template','device_map_resolved','checkpoint_id','manifest_hash','interface_lock',
+                'prefix_ids_requested','prefix_id','source_traj_uid','history_offset']:
+        config.pop(key,None)
+    config.update(model_id=pinned['model_id'],model_path=str(model_path),model_revision=pinned['model_revision'],
+        tokenizer_id=pinned['model_id'],tokenizer_revision=pinned['model_revision'],
+        checkpoint_id=str(model_path)+'@'+pinned['model_revision'],
+        phase='p0_7b_repeat',execution_kind='frozen_root_p0',profile='root_p0_7b',
+        run_id=run_id,run_dir=str(out.resolve()),parent_run_ids=[old['run_id']],
+        policy_updated=False,training_updates=0,comparison_set_id='7b-p0-20261012',
+        seed_rule='torch seed = base_seed + rollout_index + 100003 * decision_turn; task start fixed',
+        condition='root_original',start_mode='original_reset',additional_hint=None,
+        swanlab_mode=tracking,prompt_profile=old.get('prompt_profile','p0_original'),
+        parser_profile='p0_original_unchanged',source_steps_sha256=file_hash(source/'steps.jsonl'),
+        source_config_sha256=file_hash(source/'resolved_config.json'),
+        source_tasks_sha256=file_hash(source/'tasks_manifest.jsonl'),cost_comparison=False)
+    if env == 'scienceworld':
+        # The historical lock stays in a separate provenance file, never as an active model setting.
+        config['interface_lock'] = {k:old['interface_lock'][k] for k in ['selected_profile','parser_profile','jar_sha256']}
+        config['interface_lock'].update(status='reused_without_interface_changes',source_run_id=old['run_id'],
+            model_revision=pinned['model_revision'],matched_protocol={k:config[k] for k in MATCHED_PROTOCOL})
+    return config
+
+
+def verify_local_model(config):
+    base = Path(config['model_path'])
+    manifest = json.loads((base/'download_manifest.json').read_text())
+    if manifest['repo_id'] != config['model_id'] or manifest['revision'] != config['model_revision']:
+        raise ValueError('Local weights/tokenizer do not match the pinned 7B identity')
+    index = json.loads((base/'model.safetensors.index.json').read_text())
+    files = {r['file']:r for r in manifest['files']}
+    required = set(index['weight_map'].values()) | {'config.json','tokenizer.json','tokenizer_config.json','model.safetensors.index.json'}
+    for name in sorted(required):
+        if name not in files or file_hash(base/name) != files[name]['sha256']:
+            raise ValueError('Missing or changed model asset: '+name)
+    actual = json.loads((base/'config.json').read_text())
+    if (actual.get('hidden_size'),actual.get('num_hidden_layers')) != (3584,28):
+        raise ValueError('Local model config is not 7B')
+
+
+def snapshot_implementation(out,source):
+    dest = out/'implementation_snapshot';dest.mkdir()
+    files = ['recipe/dependency_pilot/'+n for n in ['post_p0.py','post_analysis.py','post_audit.py',
+        'environments.py','post_interface.py','instrumentation.py','diagnostics.py','runtime.py','download_model.py',
+        'configs/model_7b.json','orion/p0_7b.sbatch','orion/prepare_7b.sbatch']]
+    files += ['gigpo/core_gigpo.py','agent_system/multi_turn_rollout/rollout_loop.py']
+    hashes={}
+    for name in files:
+        target=dest/name;target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(ROOT/name,target);hashes[name]=file_hash(target)
+    write_json(dest/'hashes.json',hashes)
+    for name in ['resolved_config.json','tasks_manifest.jsonl','environment_provenance.json','run_manifest.json']:
+        if (source/name).exists():
+            target=out/'historical_source'/name;target.parent.mkdir(exist_ok=True)
+            shutil.copyfile(source/name,target)
 
 def fact_tuples(info):
     if not isinstance(info.get('facts'), list): return None
@@ -117,9 +201,11 @@ class PostObserver(Observer):
             ep['policy_updated'] = False
             ep['prefix_steps_consumed'] = self.config.get('history_offset',0)
             ep['remaining_turns'] = self.config['max_steps']
-            ep['continuation_seed'] = 10000+i if self.config['env'] == 'alfworld' else None
-            ep['replay_status'] = 'recorded_state_and_history_verified' if self.config['env'] == 'alfworld' else None
-            ep['replay_scope'] = 'all recorded typed facts, public feedback, menu, moves, history; no hidden RNG snapshot'
+            is_p1 = self.config.get('execution_kind') == 'alf_p1'
+            ep['continuation_seed'] = 10000+i if is_p1 else None
+            ep['replay_status'] = 'recorded_state_and_history_verified' if is_p1 else None
+            ep['replay_scope'] = 'all recorded typed facts, public feedback, menu, moves, history; no hidden RNG snapshot' if is_p1 else None
+            ep['training_updates'] = 0
             ep['initial_native_score'] = infos[i].get('native_score')
             ep['initial_look'] = infos[i].get('look')
 
@@ -231,8 +317,18 @@ def run_alf(out, config, source, prefix_ids):
 
 def run_science(out, config, source):
     tasks = read_jsonl(source/'tasks_manifest.jsonl')
-    assert {t['task_instance_id'] for t in tasks} == {'power-component/7','power-component-renewable-vs-nonrenewable-energy/5'}
-    write_json(out/'environment_provenance.json',science_provenance())
+    assert {t['task_instance_id'] for t in tasks} == ROOT_TASKS[config['env']]
+    if config['env']=='scienceworld':
+        provenance=science_provenance()
+        write_json(out/'environment_provenance.json',provenance)
+        if config.get('phase')=='p0_7b_repeat':
+            old=json.loads((source/'environment_provenance.json').read_text())
+            if any(provenance[k]!=old[k] for k in ['jar_sha256','wrapper_sha256','package_version']):
+                raise ValueError('ScienceWorld environment differs from locked baseline')
+    else:
+        for task in tasks:
+            if file_hash(task['source_path'])!=task['source_hash']:
+                raise ValueError('ALFWorld task asset differs from root P0')
     for task in tasks: append_jsonl(out/'tasks_manifest.jsonl',task)
     if config['execution_kind'] == 'science_smoke': tasks = sorted(tasks,key=lambda t:t['variation_id'])
     from .runtime import TransformersWorker
@@ -247,12 +343,12 @@ def run_science(out, config, source):
         observer = PostObserver(out,config,task,actor.tokenizer,f"{config['run_id']}:batch{batch}")
         collector_batch(actor,manager,observer,config)
         analyze(out)
-        print(f"COMPLETED_SCI_GROUP {batch+1}/2 {task['task_instance_id']}",flush=True)
+        print(f"COMPLETED_ROOT_GROUP {batch+1}/2 {task['task_instance_id']}",flush=True)
     return []
 
 def main():
     p=argparse.ArgumentParser(__doc__)
-    p.add_argument('command',choices=['prepare-prefixes','alf-p1','science-smoke','science-rep0','analyze'])
+    p.add_argument('command',choices=['prepare-prefixes','alf-p1','science-smoke','science-rep0','root-p0-7b','analyze'])
     p.add_argument('--source-run',type=Path)
     p.add_argument('--output-root',type=Path,default=Path(os.environ.get('PILOT_OUTPUT_ROOT',str(ROOT/'outputs/dependency_pilot'))))
     p.add_argument('--run-dir',type=Path)
@@ -265,13 +361,14 @@ def main():
     if args.command=='analyze': analyze(args.run_dir);return
     if not args.source_run: p.error('--source-run is required')
     source=args.source_run.resolve()
-    kind={'alf-p1':'alfworld-p1','science-smoke':'scienceworld-interface-smoke','science-rep0':'scienceworld-rep0','prepare-prefixes':'alfworld-prefixes'}[args.command]
+    old=json.loads((source/'resolved_config.json').read_text(encoding='utf8'))
+    kind=old['env']+'-p0-7b' if args.command=='root-p0-7b' else {'alf-p1':'alfworld-p1','science-smoke':'scienceworld-interface-smoke','science-rep0':'scienceworld-rep0','prepare-prefixes':'alfworld-prefixes'}[args.command]
     run_id=kind+'-'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:6]
     out=args.run_dir or args.output_root/run_id
     out.mkdir(parents=True,exist_ok=False)
     if args.command=='prepare-prefixes': prepare_prefixes(source,out);print(out);return
     old=json.loads((source/'resolved_config.json').read_text(encoding='utf8'))
-    env='alfworld' if args.command=='alf-p1' else 'scienceworld'
+    env=old['env'] if args.command=='root-p0-7b' else ('alfworld' if args.command=='alf-p1' else 'scienceworld')
     assert old['env']==env
     config={**old,'run_id':run_id,'run_dir':str(out.resolve()),'phase':'post_p0','policy_updated':False,'training_updates':0,
         'parent_run_ids':[old['run_id']],'comparison_set_id':'post-p0-20261012','execution_kind':args.command.replace('-','_'),
@@ -284,6 +381,9 @@ def main():
         'source_steps_sha256':file_hash(source/'steps.jsonl'),'prefix_ids_requested':args.prefix_ids}
     if args.command=='science-smoke': config['max_total_episodes']=2
     if args.command=='alf-p1' and args.prefix_ids:config['max_total_episodes']=len(args.prefix_ids)*6
+    if args.command=='root-p0-7b':
+        config=root_7b_config(source,args.model_path,run_id,out,args.swanlab_mode)
+        snapshot_implementation(out,source)
     if args.command=='science-rep0':
         if not args.lock_file: raise ValueError('Full re-P0 requires --lock-file after smoke')
         lock=json.loads(args.lock_file.read_text(encoding='utf8'))
@@ -295,11 +395,12 @@ def main():
     from .run import save_config
     save_config(out,config)
     manifest={'run_id':run_id,'git':git_info(),'versions':versions(),'command':sys.argv,'status':'running',
-              'slurm_job_id':os.environ.get('SLURM_JOB_ID'),'policy_updated':False,'phase':'post_p0','execution_kind':config['execution_kind']}
+              'slurm_job_id':os.environ.get('SLURM_JOB_ID'),'policy_updated':False,'training_updates':0,'phase':config['phase'],'execution_kind':config['execution_kind']}
     write_json(out/'run_manifest.json',manifest)
     print(f'RUN_DIR={out} EPISODES={config["max_total_episodes"]} MAX_STEPS={config["max_steps"]} RESPONSE_TOKENS={config["response_tokens"]}',flush=True)
     try:
-        errors=run_alf(out,config,source,args.prefix_ids) if env=='alfworld' else run_science(out,config,source)
+        if args.command=='root-p0-7b': verify_local_model(config)
+        errors=run_alf(out,config,source,args.prefix_ids) if args.command=='alf-p1' else run_science(out,config,source)
         manifest['status']=('ran_partial' if read_jsonl(out/'steps.jsonl') else 'blocked') if errors else 'completed_exploratory'
         manifest['errors']=errors
     except Exception as exc:
@@ -308,6 +409,10 @@ def main():
         traceback.print_exc()
     finally:
         write_json(out/'run_manifest.json',manifest)
+        (out/'RUN_COMMANDS.md').write_text('# Actual invocation\n\n```bash\n'+
+            shlex.join(['python','-m','recipe.dependency_pilot.post_p0',*sys.argv[1:]])+
+            '\n```\n\nObserved status: '+manifest['status']+'.\nSlurm job: '+str(manifest['slurm_job_id'])+
+            '\nPolicy updated: false; training updates: 0.\n',encoding='utf8')
         try: analyze(out)
         except Exception as exc: write_json(out/'analysis_error.json',{'error':str(exc)})
         # Tracking is a separate process. Raw facts/prompts remain local.

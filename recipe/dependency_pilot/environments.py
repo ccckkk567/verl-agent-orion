@@ -129,7 +129,7 @@ class ScienceSession:
         score = self.info["score"]
         full = float(self.env.server.getScore()) >= 1.0 and bool(self.env.server.getCompleted())
         extra = {}
-        if getattr(self, "config", {}).get("phase") == "post_p0":
+        if getattr(self, "config", {}).get("phase") in ("post_p0", "p0_7b_repeat"):
             from .post_interface import electrical_snapshot
             extra = {"electrical_observer": electrical_snapshot(self.env), "native_score_scale": "0-100 (failure -100)",
                      "outer_truncated": False, "native_budget_truncated": bool(done and score >= 0 and not full)}

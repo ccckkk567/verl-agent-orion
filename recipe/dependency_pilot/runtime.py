@@ -2,7 +2,7 @@ import os
 import time
 from pathlib import Path
 
-from .common import write_json
+from .common import write_json, digest, file_hash
 
 
 class TransformersWorker:
@@ -35,6 +35,26 @@ class TransformersWorker:
         config["checkpoint_id"] = config["model_path"] + "@" + str(config["model_revision"])
         config["chat_template"] = self.tokenizer.chat_template
         config["device_map_resolved"] = {str(k): str(v) for k, v in getattr(self.model, "hf_device_map", {}).items()}
+        if config.get('phase') == 'p0_7b_repeat':
+            import json
+            pinned = json.loads(Path(__file__).with_name('configs').joinpath('model_7b.json').read_text())
+            count = sum(p.numel() for p in self.model.parameters())
+            if (count != pinned['expected_num_parameters'] or self.model.config.hidden_size != pinned['expected_hidden_size']
+                or config['model_revision'] != pinned['model_revision']):
+                raise RuntimeError('Loaded model does not match pinned Qwen2.5-7B-Instruct identity')
+            for parameter in self.model.parameters(): parameter.requires_grad_(False)
+            config.update(actual_model_revision=config['model_revision'], tokenizer_id=config['model_id'],
+                tokenizer_revision=config['model_revision'], chat_template_hash=digest(self.tokenizer.chat_template),
+                actual_num_parameters=count, actual_dtype=str(next(self.model.parameters()).dtype),
+                policy_updated=False, training_updates=0)
+            base = Path(config['model_path'])
+            identity = {k: config[k] for k in ['model_id','model_path','actual_model_revision','checkpoint_id','tokenizer_id',
+                'tokenizer_revision','chat_template_hash','actual_num_parameters','actual_dtype','device_map_resolved','policy_updated','training_updates']}
+            identity['file_hashes'] = {p.name: file_hash(p) for p in base.iterdir() if p.name in
+                ['config.json','generation_config.json','model.safetensors.index.json','tokenizer.json','tokenizer_config.json','vocab.json','merges.txt','download_manifest.json']}
+            write_json(Path(config['run_dir'])/'model_identity.json',identity)
+            write_json(Path(config['run_dir'])/'actual_model_config.json',self.model.config.to_dict())
+            print(f"ACTUAL_MODEL {config['model_id']} revision={config['model_revision']} parameters={count} dtype={config['actual_dtype']}",flush=True)
 
     def generate_sequences(self, batch):
         import numpy as np
