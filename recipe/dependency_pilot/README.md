@@ -9,7 +9,7 @@ Work only on `exp/dep-prep-pilot-20261012`. Baseline: `24305ac85b5c7456ed2c0f851
 - Raw resets, decisions saved **before** environment execution, completed steps and episodes; original and tokenized actual prompt; raw/parsed response; stop reason; raw score/reward; once-only terminal reward; metrics, PNG/SVG figures and report.
 - ALFWorld reuses its installed official text environment and upstream parser/templates. An external Python bridge supports the existing HPC Python 3.10 environment. AppWorld enumerates train/dev only and runs each world in its own child process on Orion.
 
-P1 training and prefix probes are not implemented/claimed in this P0 commit. Start those after genuine trajectories have useful prefixes. `reference-check`/`interface-check` are **not model samples**.
+One bounded ScienceWorld prefix probe is implemented and was run after P0. It replays an actual observed prefix, then compares the original goal with one local goal hint using the same remaining budget and endpoint. The source run lacks full state/RNG snapshots, so this is explicitly approximate replay and excluded from strict causal paired analysis. Training and other P2 branches are not implemented. `reference-check`/`interface-check` are **not model samples**. See `LOCAL_EXECUTION.md` for actual outcomes.
 
 ## Local commands
 

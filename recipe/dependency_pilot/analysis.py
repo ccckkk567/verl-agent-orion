@@ -42,6 +42,7 @@ def metrics_for(episodes, steps, diagnostics=(), anchors=()):
         "eval/native_score_mean": average([e["native_score"] for e in episodes], "episodes with native score; within environment"),
         "eval/budget_truncated_rate": rate(sum(e["termination_reason"] == "budget_truncated" for e in known), len(known), "evaluable episodes"),
         "data/parse_valid_rate": rate(sum(s["parse_valid"] for s in parse), len(parse), "active steps with known parse validity"),
+        "data/unrecognized_command_rate": rate(sum("No known action matches that input." in str(s.get("observation_post", "")) for s in active), len(active) if episodes and episodes[0]["env"] == "scienceworld" else 0, "ScienceWorld active steps; exact native error string"),
         "data/env_action_valid_rate": rate(sum(s["env_action_valid"] for s in valid), len(valid), "active steps with native validity evidence"),
         "data/turns_mean": average([e["agent_turns"] for e in known], "evaluable episodes"),
         "data/prompt_truncation_rate": rate(sum(s["truncated_tokens"] > 0 for s in active), len(active), "active generated steps"),
@@ -82,7 +83,7 @@ def csv_table(path, rows, columns):
 
 def analyze(run_dir):
     run_dir = Path(run_dir)
-    config = json.loads((run_dir / "resolved_config.json").read_text())
+    config = json.loads((run_dir / "resolved_config.json").read_text(encoding="utf-8"))
     episodes, steps = read_jsonl(run_dir / "episodes.jsonl"), read_jsonl(run_dir / "steps.jsonl")
     # Attempts lacking a final record are explicit interrupted/unknown executions.
     final_ids = {e["traj_uid"] for e in episodes}
@@ -141,9 +142,12 @@ def plots(run_dir, episodes, steps, anchors):
         bottom = [a+b for a,b in zip(bottom, values)]
     ax.set_xticks(range(len(families)), [f.replace("power-component", "power").replace("-", "\n") for f in families], fontsize=8)
     ax.set_ylabel("Episodes (counts)")
+    from matplotlib.ticker import MaxNLocator
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
     ax.set_title("Frozen model outcomes: full completion and truncation kept separate")
     ax.legend(fontsize=8)
-    fig.text(.02, .015, f"{len(episodes)} attempts; {len({e['task_instance_id'] for e in episodes})} task-instances; train/dev; condition labels unknown", fontsize=8)
+    splits = ','.join(sorted({e['official_split'] for e in episodes}))
+    fig.text(.02, .015, f"{len(episodes)} attempts; {len({e['task_instance_id'] for e in episodes})} task-instances; splits={splits}; condition labels unknown", fontsize=8)
     fig.tight_layout(rect=(0,.045,1,1))
     for ext in ["png", "svg"]:
         path = figures / f"outcome_overview.{ext}"
@@ -170,6 +174,8 @@ def plots(run_dir, episodes, steps, anchors):
         fig, ax = plt.subplots(figsize=(7, 4))
         c = Counter(a["unique_trajectories"] for a in anchors)
         ax.bar(list(c), list(c.values()))
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+        ax.yaxis.set_major_locator(MaxNLocator(integer=True))
         ax.set(xlabel="Distinct trajectories per exact pre-action anchor group", ylabel="Groups", title="Anchor support; phase labels currently unknown")
         fig.tight_layout()
         for ext in ["png", "svg"]:
@@ -182,9 +188,9 @@ def plots(run_dir, episodes, steps, anchors):
 
 def report(run_dir, episodes, steps, metrics, figures):
     run_dir = Path(run_dir)
-    manifest = json.loads((run_dir / "run_manifest.json").read_text())
-    config = json.loads((run_dir / "resolved_config.json").read_text())
-    tracking = json.loads((run_dir / "tracking.json").read_text()) if (run_dir / "tracking.json").exists() else {"mode": "disabled", "url": None}
+    manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
+    config = json.loads((run_dir / "resolved_config.json").read_text(encoding="utf-8"))
+    tracking = json.loads((run_dir / "tracking.json").read_text(encoding="utf-8")) if (run_dir / "tracking.json").exists() else {"mode": "disabled", "url": None}
     def show(key):
         m = metrics[key]
         return f"{m['value']:.3f} ({m.get('numerator', 'NA')}/{m.get('denominator','NA')})" if m["value"] is not None else "NA (denominator=0)"

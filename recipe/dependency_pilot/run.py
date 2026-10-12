@@ -14,7 +14,7 @@ from .common import ROOT, append_jsonl, digest, git_info, read_jsonl, versions, 
 
 def parser():
     p = argparse.ArgumentParser(__doc__)
-    p.add_argument("command", choices=["inspect", "prepare", "collect", "analyze", "plot", "report", "reference-check", "interface-check"])
+    p.add_argument("command", choices=["inspect", "prepare", "collect", "analyze", "plot", "report", "track", "reference-check", "interface-check"])
     p.add_argument("--env", choices=["scienceworld", "alfworld", "appworld"], default="scienceworld")
     p.add_argument("--profile", choices=["smoke", "discovery"], default="smoke")
     p.add_argument("--output-root", default=os.environ.get("PILOT_OUTPUT_ROOT", str(ROOT / "outputs/dependency_pilot")))
@@ -32,7 +32,7 @@ def parser():
 
 def resolve(args):
     import yaml
-    config = yaml.safe_load((Path(__file__).parent / "configs/base.yaml").read_text())
+    config = yaml.safe_load((Path(__file__).parent / "configs/base.yaml").read_text(encoding="utf-8"))
     config["env"], config["profile"] = args.env, args.profile
     if args.profile == "smoke":
         config.update(max_tasks=2, max_total_episodes=8)
@@ -50,7 +50,7 @@ def resolve(args):
         raise ValueError("Episode budget must permit a complete group")
     model_manifest = Path(config["model_path"]) / "download_manifest.json"
     if model_manifest.exists():
-        config["model_revision"] = json.loads(model_manifest.read_text())["revision"]
+        config["model_revision"] = json.loads(model_manifest.read_text(encoding="utf-8"))["revision"]
     config["checkpoint_id"] = config["model_path"] + "@" + str(config["model_revision"])
     if any(getattr(args, key) is not None for key in ["max_steps", "response_tokens", "prompt_tokens", "rollouts_per_task"]):
         config["protocol"] = "frozen_p0_v1_explicit_budget_override"
@@ -184,9 +184,39 @@ def main():
     args = parser().parse_args()
     if args.command == "inspect":
         inspect(); return 0
-    if args.command in ["analyze", "plot", "report"]:
+    if args.command in ["analyze", "plot", "report", "track"]:
         if not args.run_dir: raise ValueError("--run-dir is required")
-        summarize(Path(args.run_dir)); return 0
+        run_dir = Path(args.run_dir)
+        tracker = None
+        if args.command == "track":
+            # Match the working collection import order on Windows CUDA wheels.
+            import torch
+            from .runtime import PilotTracking
+            from .common import file_hash
+            tracking_config = json.loads((run_dir / "resolved_config.json").read_text(encoding="utf-8"))
+            tracking_config["parent_run_id"] = tracking_config["run_id"]
+            tracking_config["run_id"] += "-analysis-" + uuid.uuid4().hex[:6]
+            tracking_config["swanlab_mode"] = args.swanlab_mode or "auto"
+            tracking_config["source_steps_sha256"] = file_hash(run_dir / "steps.jsonl")
+            previous = run_dir / "tracking.json"
+            if previous.exists():
+                previous.rename(run_dir / ("tracking-previous-" + uuid.uuid4().hex[:6] + ".json"))
+            tracker = PilotTracking(run_dir, tracking_config)
+        try:
+            if tracker:
+                # Upload durable derived files; do not recompute plots after a cloud SDK
+                # has loaded its own native libraries into this Windows process.
+                metrics = json.loads((run_dir / "metrics.json").read_text(encoding="utf-8"))
+                tracker.log_summary(metrics, sorted((run_dir / "figures").glob("*.png")))
+            else:
+                summarize(run_dir)
+        finally:
+            if tracker: tracker.close()
+        if tracker:
+            from .analysis import report
+            report(run_dir, read_jsonl(run_dir / "episodes.jsonl"), read_jsonl(run_dir / "steps.jsonl"),
+                metrics, sorted((run_dir / "figures").glob("*.png")))
+        return 0
     config = resolve(args)
     run_id = f"{args.env}-{args.command}-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:6]}"
     run_dir = Path(args.run_dir) if args.run_dir else Path(args.output_root) / run_id
@@ -225,11 +255,16 @@ def main():
         if args.command == "collect":
             from .runtime import PilotTracking
             # Only summary scalars/images after durable local raw recording. Never credentials or raw traces.
+            summarize(run_dir)
             tracking = PilotTracking(run_dir, config)
             try:
-                summarize(run_dir, tracking)
+                tracking.log_summary(json.loads((run_dir / "metrics.json").read_text(encoding="utf-8")),
+                    sorted((run_dir / "figures").glob("*.png")))
             finally:
                 tracking.close()
+            from .analysis import report
+            report(run_dir, read_jsonl(run_dir / "episodes.jsonl"), read_jsonl(run_dir / "steps.jsonl"),
+                json.loads((run_dir / "metrics.json").read_text(encoding="utf-8")), sorted((run_dir / "figures").glob("*.png")))
         else:
             (run_dir / "report.md").write_text(f"# {args.command}\n\nStatus: {manifest['status']}\n\nThis run contains no model-sampled trajectories.\n\n{manifest.get('error', '')}\n", encoding="utf-8")
     print(f"RESULT={manifest['status']} RUN_DIR={run_dir}", flush=True)

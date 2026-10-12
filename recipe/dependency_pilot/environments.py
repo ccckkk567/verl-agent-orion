@@ -61,8 +61,8 @@ def enumerate_tasks(env_name, config):
                 trajectory = path.with_name("traj_data.json")
                 if not trajectory.exists():
                     continue
-                td = json.loads(trajectory.read_text())
-                game = json.loads(path.read_text())
+                td = json.loads(trajectory.read_text(encoding="utf-8"))
+                game = json.loads(path.read_text(encoding="utf-8"))
                 if td["task_type"] not in ALF_FAMILIES or not game.get("solvable") or "Sliced" in str(path) or "movable" in str(path):
                     continue
                 tasks.append({"env": env_name, "task_id": path.parent.name, "task_family": td["task_type"],
@@ -155,10 +155,12 @@ class AlfSession:
     def __init__(self, task, config):
         import yaml
         from alfworld.agents.environment.alfred_tw_env import AlfredTWEnv
-        cfg = yaml.safe_load((ROOT / "agent_system/environments/env_package/alfworld/configs/config_tw.yaml").read_text())
+        cfg = yaml.safe_load((ROOT / "agent_system/environments/env_package/alfworld/configs/config_tw.yaml").read_text(encoding="utf-8"))
         cfg["dataset"]["num_train_games"] = -1
         cfg["rl"]["training"]["max_nb_steps_per_episode"] = config["max_steps"]
+        cfg["dagger"]["training"]["max_nb_steps_per_episode"] = config["max_steps"]
         base = AlfredTWEnv(cfg, train_eval="train" if task["official_split"] == "train" else "eval_in_distribution")
+        base.use_expert = False
         if task["source_path"] not in base.game_files:
             raise RuntimeError("Selected game is not in installed ALFWorld sampler")
         base.game_files, base.num_games = [task["source_path"]], 1
@@ -249,6 +251,8 @@ class PilotManager:
     def __init__(self, task, config):
         self.task, self.config = task, config
         self.sessions = []
+        if task["env"] == "appworld" and config["rollouts_per_task"] > 1 and not os.environ.get("APPWORLD_PYTHON"):
+            raise ValueError("Set APPWORLD_PYTHON for isolated per-trajectory AppWorld processes")
         self.session_cls = {"scienceworld": ScienceSession, "alfworld": AlfSession, "appworld": AppSession}[task["env"]]
         if os.environ.get(task["env"].upper() + "_PYTHON") and task["env"] in ("alfworld", "appworld"):
             from .env_rpc import RpcSession

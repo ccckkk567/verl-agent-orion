@@ -116,7 +116,7 @@ def test_observer_does_not_change_collector_and_ids_survive_flatten(tmp_path):
     for before, after in zip(outputs[0][0], outputs[1][0]):
         assert [x["rewards"] for x in before] == [x["rewards"] for x in after]
         assert all(torch.equal(a["responses"], b["responses"]) for a,b in zip(before, after))
-    rows = [json.loads(line) for line in (tmp_path / "steps.jsonl").read_text().splitlines()]
+    rows = [json.loads(line) for line in (tmp_path / "steps.jsonl").read_text(encoding="utf-8").splitlines()]
     assert [r["anchor_pre_raw"] for r in rows] == ["pre0", "pre0", "pre1", "pre1"]
     assert [r["observation_post"] for r in rows] == ["pre1", "pre1", "pre2", "pre2"]
 
@@ -137,4 +137,9 @@ def test_disabled_tracking_always_writes_local_state(tmp_path):
     from recipe.dependency_pilot.runtime import PilotTracking
     tracking = PilotTracking(tmp_path, {"swanlab_mode": "disabled"})
     assert tracking.tracking is None
-    assert json.loads((tmp_path / "tracking.json").read_text())["mode"] == "disabled"
+    assert json.loads((tmp_path / "tracking.json").read_text(encoding="utf-8"))["mode"] == "disabled"
+def test_probe_endpoint_unknown_is_not_false():
+    from recipe.dependency_pilot.probes import wire_endpoint
+    assert wire_endpoint("") is None
+    assert wire_endpoint("2 false GoalObjectConnectedToWire first\n3 false GoalObjectConnectedToWire second") is False
+    assert wire_endpoint("2 true GoalObjectConnectedToWire first\n3 false GoalObjectConnectedToWire second") is True

@@ -81,11 +81,16 @@ class TransformersWorker:
 class PilotTracking:
     """One driver / one existing Tracking instance. Local outputs always come first."""
     def __init__(self, run_dir, config):
+        import sys
+        if sys.platform == "win32":
+            for stream in (sys.stdout, sys.stderr):
+                if hasattr(stream, "reconfigure"):
+                    stream.reconfigure(encoding="utf-8", errors="replace")
         self.run_dir, self.tracking, self.sdk = Path(run_dir), None, None
         mode = config.get("swanlab_mode", "auto")
         if mode == "auto":
             mode = "cloud" if os.environ.get("SWANLAB_API_KEY") else "offline"
-        self.state = {"backend": "swanlab", "mode_requested": mode, "mode": "disabled", "url": None}
+        self.state = {"backend": "swanlab", "mode_requested": mode, "mode": "disabled", "url": None, "summary_status": "pending"}
         if mode != "disabled":
             try:
                 os.environ["SWANLAB_MODE"] = mode
@@ -126,6 +131,8 @@ class PilotTracking:
             for figure in figures:
                 data["figures/" + figure.stem] = self.sdk.Image(str(figure))
             self.tracking.log(data, step=0)
+            self.state["summary_status"] = "submitted"
+            write_json(self.run_dir / "tracking.json", self.state)
         except Exception as exc:
             self.state["log_error"] = f"{type(exc).__name__}: {exc}"
             write_json(self.run_dir / "tracking.json", self.state)
@@ -134,5 +141,10 @@ class PilotTracking:
         if self.tracking:
             try:
                 self.sdk.finish()
+                self.state["finish_status"] = "completed"
+                write_json(self.run_dir / "tracking.json", self.state)
+            except Exception as exc:
+                self.state["finish_error"] = f"{type(exc).__name__}: {exc}"
+                write_json(self.run_dir / "tracking.json", self.state)
             finally:
                 self.tracking.logger.clear()  # avoid a second finish from upstream destructor

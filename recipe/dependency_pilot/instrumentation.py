@@ -16,8 +16,8 @@ class Observer:
             raise ValueError("One pilot collector batch must contain exactly one fixed task group")
         for index, (group, traj, info) in enumerate(zip(group_ids, traj_ids, infos)):
             ep = {**self.task, "run_id": self.config["run_id"], "checkpoint_id": self.config["checkpoint_id"],
-                "model_revision": self.config.get("model_revision"), "algorithm": "frozen_collect",
-                "condition": "root_original", "seed": self.config["seed"] + index,
+                "model_revision": self.config.get("model_revision"), "algorithm": self.config.get("run_identity", "frozen_collect"),
+                "condition": self.config.get("condition", "root_original"), "seed": self.config["seed"] + index,
                 "rollout_batch_id": self.batch_id, "episode_group_uid": str(group), "traj_uid": str(traj),
                 "expected_group_size": self.config["rollouts_per_task"], "strict_success": info.get("strict_success"),
                 "definition_status": info.get("definition_status", "unknown"), "native_score": info.get("native_score"),
@@ -45,7 +45,7 @@ class Observer:
             row.update(analysis_step_id=step_id, step_index=step, active_mask=bool(active[i]),
                 actor_prompt=obs["text"][i], rendered_prompt=rendered, rendered_prompt_hash=digest(rendered),
                 actual_input_ids=actual_ids, actual_input_hash=digest(str(actual_ids)), input_tokens=len(actual_ids),
-                truncated_tokens=max(0, original_tokens - len(actual_ids)), visible_history_steps=min(step, self.config["history_length"]),
+                truncated_tokens=max(0, original_tokens - len(actual_ids)), visible_history_steps=min(step + self.config.get("history_offset", 0), self.config["history_length"]),
                 anchor_pre_raw=obs["anchor"][i], anchor_pre_hash=digest(obs["anchor"][i]),
                 remaining_agent_turns=self.config["max_steps"] - step, native_score_pre=ep["native_score"],
                 role_pre="unknown", condition_pre=None, condition_post=None,
