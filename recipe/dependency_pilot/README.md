@@ -31,7 +31,7 @@ For a 4GB local GPU a **separate connectivity protocol** can use `--max-tasks 2 
 
 ## Orion handoff
 
-HPC repository: `/scratch/prjsnnn0000269/Students/shuming/cjk/code/verl-agent-orion`. The assistant cannot connect; the user executes all commands. Push is explicitly left to the user. On the local experiment checkout:
+HPC repository: `/scratch/prjsnnn0000269/Students/shuming/cjk/code/verl-agent-orion`. The assistant cannot connect; the user executes the Orion commands. The user subsequently authorized the assistant to perform local commits and experimental branch pushes. Local push command (already performed by the assistant):
 
 ```bash
 git push -u origin exp/dep-prep-pilot-20261012
@@ -41,13 +41,13 @@ On Orion, obtain an independent checkout without changing its existing master wo
 
 ```bash
 cd /scratch/prjsnnn0000269/Students/shuming/cjk/code/verl-agent-orion
-git fetch origin exp/dep-prep-pilot-20261012
+git fetch origin refs/heads/exp/dep-prep-pilot-20261012:refs/remotes/origin/exp/dep-prep-pilot-20261012
 git worktree add -b exp/dep-prep-pilot-20261012 ../verl-agent-dep-prep-pilot origin/exp/dep-prep-pilot-20261012
 cd /scratch/prjsnnn0000269/Students/shuming/cjk/code/verl-agent-dep-prep-pilot
 sbatch recipe/dependency_pilot/orion/prepare.sbatch
 ```
 
-These branch/worktree commands are for first creation; inspect an existing experiment worktree rather than force-resetting it. After the setup job completes successfully:
+The explicit fetch destination creates the experiment's remote-tracking ref even when the existing clone fetches only master. A branch-name-only fetch can update only FETCH_HEAD, causing worktree creation from origin/exp/... to fail. This command does not change shared repository fetch configuration. These branch/worktree commands are for first creation; inspect an existing experiment worktree rather than force-resetting it. After the setup job completes successfully:
 
 ```bash
 sbatch recipe/dependency_pilot/orion/collect.sbatch scienceworld
