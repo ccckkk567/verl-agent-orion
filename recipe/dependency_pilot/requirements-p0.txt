@@ -1,4 +1,4 @@
-# CPU/JVM setup is submitted to ioqueue. Frozen actor does not require vLLM/FSDP.
+# Setup uses the verified testqueue Python runtime. Frozen actor needs no vLLM/FSDP.
 # Orion explicitly uses Python 3.12 and installs torch's cu126 wheel first.
 torch==2.8.0
 transformers==4.57.3

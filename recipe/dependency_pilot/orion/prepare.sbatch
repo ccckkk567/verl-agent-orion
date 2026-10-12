@@ -1,13 +1,16 @@
 #!/bin/bash
 #SBATCH -A prjsnnn0000269
 #SBATCH --job-name=cjk-dep-prepare
-#SBATCH --partition=ioqueue
+#SBATCH --partition=testqueue
+#SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=02:00:00
 #SBATCH --output=/scratch/prjsnnn0000269/Students/shuming/cjk/logs/cjk-dep-prepare-%j.out
 set -euo pipefail
+# Python 3.12.5 raised SIGILL on ioqueue; setup passed on testqueue in job 159634.
+ulimit -c 0
 module purge
 module load python/3.12.5
 source recipe/dependency_pilot/orion/common.sh
