@@ -328,11 +328,19 @@ class TrajectoryCollector:
         episode_lengths = np.zeros(batch_size, dtype=np.float32)
         episode_rewards = np.zeros(batch_size, dtype=np.float32)
         tool_callings = np.zeros(batch_size, dtype=np.float32)
+        # Optional read-only pilot observer. Absent by default; no algorithm/config change.
+        pilot_observer = getattr(self, 'pilot_observer', None)
+        if pilot_observer is not None:
+            pilot_observer.start(obs, infos, uid_batch, traj_uid)
         # Trajectory collection loop
         for _step in range(self.config.env.max_steps):
             active_masks = np.logical_not(is_done)
 
             batch = self.preprocess_batch(gen_batch=gen_batch, obs=obs)
+
+            if pilot_observer is not None:
+                batch.non_tensor_batch['analysis_step_id'] = pilot_observer.before_step(
+                    _step, batch, obs, active_masks)
 
             batch_keys_to_pop = ["input_ids", "attention_mask", "position_ids"]
             non_tensor_batch_keys_to_pop = ["raw_prompt_ids"]
@@ -361,6 +369,9 @@ class TrajectoryCollector:
             batch = batch.union(batch_output)
             
             text_actions = self.tokenizer.batch_decode(batch.batch['responses'], skip_special_tokens=True)
+
+            if pilot_observer is not None:
+                pilot_observer.decisions(batch, text_actions)
             
             next_obs, rewards, dones, infos = envs.step(text_actions)
 
@@ -370,6 +381,9 @@ class TrajectoryCollector:
             if len(dones.shape) == 2:
                 # dones is numpy, delete a dimension
                 dones = dones.squeeze(1)
+
+            if pilot_observer is not None:
+                pilot_observer.after_step(next_obs, rewards, dones, infos)
 
             if 'is_action_valid' in infos[0]:
                 batch.non_tensor_batch['is_action_valid'] = np.array([info['is_action_valid'] for info in infos], dtype=bool)
@@ -404,6 +418,9 @@ class TrajectoryCollector:
             if is_done.all():
                 break
         
+        if pilot_observer is not None:
+            pilot_observer.finish()
+
         success: Dict[str, np.ndarray] = envs.success_evaluator(
                     total_infos=total_infos,
                     total_batch_list=total_batch_list,
