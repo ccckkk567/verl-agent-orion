@@ -29,6 +29,11 @@ def json_default(value):
         return value.tolist()
     if isinstance(value, Path):
         return str(value)
+    cls = type(value)
+    if cls.__module__ == "textworld.logic" and cls.__name__ in {"Proposition", "Variable"}:
+        # Preserve native facts as structured data, without requiring TextWorld
+        # in the model process or exposing hidden facts in the actor prompt.
+        return {"__type__": f"{cls.__module__}.{cls.__name__}", **value.serialize()}
     raise TypeError(type(value).__name__)
 
 

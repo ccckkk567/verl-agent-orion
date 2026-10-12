@@ -30,10 +30,12 @@ def main():
                     result = True
                 else:
                     raise ValueError(operation)
-            response = {"result": result}
+            # Encoding is part of the operation: unsupported native objects
+            # must return a traceback to the parent rather than kill this worker.
+            response = json.dumps({"result": result}, default=json_default)
         except Exception:
-            response = {"error": traceback.format_exc()}
-        print(json.dumps(response, default=json_default), flush=True)
+            response = json.dumps({"error": traceback.format_exc()})
+        print(response, flush=True)
         if operation == "close": break
 
 

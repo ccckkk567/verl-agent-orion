@@ -41,7 +41,12 @@ class EnvProcess:
     def close(self):
         try:
             if self.process.poll() is None:
-                self.call("close")
+                try:
+                    self.call("close")
+                except (BrokenPipeError, ConnectionResetError):
+                    # The child can exit between poll() and the pipe write.
+                    # Preserve the original environment error during cleanup.
+                    pass
                 self.process.wait(timeout=10)
         finally:
             if self.process.poll() is None:
