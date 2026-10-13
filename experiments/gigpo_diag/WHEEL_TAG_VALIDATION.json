@@ -1,0 +1,20 @@
+{
+  "incident_job": 160510,
+  "failure_stage": "pip check after successful editable verl install",
+  "official_pypi_wheels_downloaded_and_sha256_verified": true,
+  "regression_tests_passed": 4,
+  "regression_command": "python -m pytest experiments/gigpo_diag/test_wheel_tags.py -q -p no:cacheprovider",
+  "shell_syntax_passed": true,
+  "python_syntax_passed": true,
+  "existing_resolved_graph_contains_exact_versions": {
+    "textworld": "1.7.0",
+    "decord": "0.6.0"
+  },
+  "repairs_only": [
+    "known WHEEL headers",
+    "corresponding installed RECORD entries"
+  ],
+  "full_pip_check_retained": true,
+  "hpc_runtime_check_executed_after_this_fix": false,
+  "verified_training_updates": 0
+}

@@ -30,3 +30,36 @@ pip + distribution metadata reside in that venv. Retry only recognized transient
 transport/index errors, at most three attempts. Each project gets its own pip cache.
 Existing venvs and installed flash-attn are reused. No directory/cache purge or
 global pip installation. Training recipe, model, reward and algorithm are unchanged.
+
+## ALFWorld job 160510: verified upstream wheel metadata defects
+
+Installation completed, then pip 25.3 check rejected textworld 1.7.0 and decord
+0.6.0. The exact official PyPI Linux x86_64 wheels were downloaded locally and
+SHA256-verified against PyPI JSON. See WHEEL_TAG_EVIDENCE.json for URLs, hashes,
+original headers and corrected headers. TextWorld puts a blank line before Tag,
+so pip's email header parser finds no tags. decord's filename says py3-none but
+its internal header says cp36-cp36m (upstream issue dmlc/decord#356); its Python
+wrapper loads libdecord via ctypes. This error is a metadata check, not a failed
+GPU kernel or an actual runtime test.
+
+Pin these two already installed versions. In the existing dedicated venv only,
+repair the exact known WHEEL bytes (TextWorld header separator; decord tag to
+match its published filename), update the corresponding RECORD hash, and keep
+original WHEEL/RECORD backups under the venv's gigpo-wheel-tag-backups directory.
+Unknown versions/metadata or unsupported target tags fail closed. No package
+code, native library or other dependency is changed. Repeated setup is idempotent.
+No new venv, dependency purge, or pip downgrade. Full pip check still must pass.
+
+The same GPU prepare job then executes a native decord array allocation/copy
+and the repository's actual ALFWorld worker reset + one look action on the train
+pool. This is an installation check only: no model, optimizer, policy rollout or
+experimental result. Evidence is saved in the job TMPDIR as wheel-tag-repair.json
+and alfworld-runtime-check.json. Any failure blocks the dependent training job.
+Local checks exercise the published headers, RECORD update/backups, idempotence,
+unknown-metadata rejection, platform rejection and venv boundary. Actual Orion
+runtime compatibility remains unverified until this prepare job succeeds.
+
+Retry only ALFWorld with experiments/gigpo_diag/submit.sh after pulling this
+branch. Do not rerun bootstrap_all.sh or change ScienceWorld/AppWorld checkouts
+while their latest jobs have unknown status. Job 160510 failed before training;
+its paired training job ID was not supplied and must not be guessed.

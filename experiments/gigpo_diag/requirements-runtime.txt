@@ -14,3 +14,5 @@ tensordict==0.10.0
 peft==0.17.1
 alfworld==0.4.2
 stable-baselines3==2.6.0
+textworld==1.7.0
+decord==0.6.0
