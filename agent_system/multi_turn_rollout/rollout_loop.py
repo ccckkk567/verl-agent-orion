@@ -21,6 +21,7 @@ from verl.utils.model import compute_position_id_with_mask
 import verl.utils.torch_functional as verl_F
 from transformers import PreTrainedTokenizer
 import uuid
+from experiments.gigpo_diag import diagnostics as diag
 from agent_system.multi_turn_rollout.utils import process_image, to_list_of_dict, torch_to_numpy, filter_group_data
 from agent_system.environments import EnvironmentManagerBase
 from typing import List, Dict
@@ -323,6 +324,9 @@ class TrajectoryCollector:
             uid_batch = np.array([uid for _ in range(len(gen_batch.batch))], dtype=object)
         is_done = np.zeros(batch_size, dtype=bool)
         traj_uid = np.array([str(uuid.uuid4()) for _ in range(batch_size)], dtype=object)
+        if getattr(self, "_diag_is_train", True):
+            diag.verify_groups(obs, infos, uid_batch)
+        diag_ctx = diag.begin_rollout(obs, infos, uid_batch, traj_uid, getattr(self, "_diag_is_train", True), self.config)
         total_batch_list = [[] for _ in range(batch_size)]
         total_infos = [[] for _ in range(batch_size)]
         episode_lengths = np.zeros(batch_size, dtype=np.float32)
@@ -348,6 +352,8 @@ class TrajectoryCollector:
             )
 
             batch_input.meta_info = gen_batch.meta_info
+            if diag.enabled():
+                batch_input.meta_info["diag_policy_version"] = diag.current_update()
 
             # pad to be divisible by dp_size
             batch_input_padded, pad_size = pad_dataproto_to_divisor(batch_input, actor_rollout_wg.world_size)
@@ -362,7 +368,9 @@ class TrajectoryCollector:
             
             text_actions = self.tokenizer.batch_decode(batch.batch['responses'], skip_special_tokens=True)
             
+            diag_raw_actions = list(text_actions)
             next_obs, rewards, dones, infos = envs.step(text_actions)
+            diag.step(diag_ctx, batch, batch_input, diag_raw_actions, obs, next_obs, rewards, dones, infos, active_masks, _step, self.tokenizer)
 
             
             if len(rewards.shape) == 2:
@@ -404,6 +412,7 @@ class TrajectoryCollector:
             if is_done.all():
                 break
         
+        diag.end_rollout(diag_ctx)
         success: Dict[str, np.ndarray] = envs.success_evaluator(
                     total_infos=total_infos,
                     total_batch_list=total_batch_list,
@@ -503,6 +512,7 @@ class TrajectoryCollector:
         if is_train:
             gen_batch = gen_batch.repeat(repeat_times=self.config.env.rollout.n, interleave=True)
             
+        self._diag_is_train = is_train
         # Initial observations from the environment
         if self.config.algorithm.filter_groups.enable and is_train:
             # Dynamic Sampling (for DAPO and Dynamic GiGPO)

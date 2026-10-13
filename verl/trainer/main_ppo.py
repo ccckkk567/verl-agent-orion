@@ -45,7 +45,9 @@ def run_ppo(config) -> None:
         runtime_env = OmegaConf.merge(default_runtime_env, runtime_env_kwargs)
         ray_init_kwargs = OmegaConf.create({**ray_init_kwargs, "runtime_env": runtime_env})
         print(f"ray init kwargs: {ray_init_kwargs}")
-        ray.init(**OmegaConf.to_container(ray_init_kwargs))
+        ray_kwargs = OmegaConf.to_container(ray_init_kwargs)
+        ray_kwargs.update(address="local", _temp_dir=os.environ.get("RAY_TMPDIR"))
+        ray.init(**ray_kwargs)
 
     runner = TaskRunner.remote()
     ray.get(runner.run.remote(config))
@@ -63,6 +65,8 @@ class TaskRunner:
 
         pprint(OmegaConf.to_container(config, resolve=True))  # resolve=True will eval symbol values
         OmegaConf.resolve(config)
+        from experiments.gigpo_diag.runtime import record_provenance
+        record_provenance(config)
 
         # download the checkpoint from hdfs
         local_path = copy_to_local(config.actor_rollout_ref.model.path, use_shm=config.actor_rollout_ref.model.get("use_shm", False))

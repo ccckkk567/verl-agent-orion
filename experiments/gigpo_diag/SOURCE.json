@@ -1,0 +1,6 @@
+{
+  "env": "alfworld",
+  "upstream_commit": "20bd331bdbc9026a5668e11362178e10ab7400c8",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}
