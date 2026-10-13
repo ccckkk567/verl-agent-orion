@@ -44,6 +44,7 @@ fi
 # Repair only the two byte-verified upstream metadata defects; pip check remains mandatory.
 "$GIGPO_VENV/bin/python" -I experiments/gigpo_diag/repair_wheel_tags.py
 "$GIGPO_VENV/bin/python" -I -m pip check
+"$GIGPO_VENV/bin/python" -I experiments/gigpo_diag/check_data_stack.py
 python -m experiments.gigpo_diag.check_alfworld_runtime
 python -c 'import sys,verl,torch,vllm; print("RUNTIME",sys.executable,verl.__file__,torch.__version__,vllm.__version__,flush=True); assert torch.cuda.is_available()'
 "$GIGPO_VENV/bin/python" -I -m pip freeze > "$GIGPO_VENV/gigpo-pip-freeze.txt"

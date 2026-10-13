@@ -6,8 +6,8 @@
   "resolver": "uv 0.11.7 pip compile",
   "dependency_resolution_passed": true,
   "resolved_package_count": 244,
-  "resolution_input_sha256": "15bbb68625498f44ed975f61a9ad5e71d4fe8a05daef1d4ab9a5c1fffd5fe122",
-  "resolved_graph_sha256": "0f7e5de97728427e5ab11fbfdbb7ac386e1f73bb6a04647b6331bebab9adb5f9",
+  "resolution_input_sha256": "8ca32f5c49e1a08bdc8446374b57a2e4d404365f2b9ba27ad0b215c3bcd847e8",
+  "resolved_graph_sha256": "5ceb929febdd9ae12e89912546b9b47c1d09d12a8f1ac7cd0dfd3b76890f3cd1",
   "regression_tests_passed": 5,
   "shell_syntax_passed": true,
   "checks": [
@@ -21,5 +21,6 @@
   ],
   "training_launcher_changed": false,
   "gpu_install_of_repaired_setup_executed": false,
-  "actual_training_updates_verified": 0
+  "actual_training_updates_verified": 0,
+  "latest_dependency_repair": "Pin pyarrow19.0.1 for the existing numpy1.26.4/datasets3.6.0 stack; actual local Parquet and NumPy round trips passed."
 }

@@ -154,7 +154,7 @@ psutil==7.2.2
 pwinput==1.0.3
 py-cpuinfo==9.0.0
 py-spy==0.4.2
-pyarrow==26.0.0
+pyarrow==19.0.1
 pyasn1==0.6.4
 pyasn1-modules==0.4.2
 pybase64==1.5.1
@@ -205,7 +205,7 @@ spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 srsly==2.5.4
 stable-baselines3==2.6.0
-starlette==1.7.0
+starlette==1.8.0
 swanlab==0.10.2
 sympy==1.14.0
 tatsu==5.8.3
