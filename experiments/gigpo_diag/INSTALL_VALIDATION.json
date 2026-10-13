@@ -1,0 +1,25 @@
+{
+  "scope": "installation_repair_local_validation",
+  "environment": "alfworld",
+  "python_version": "3.12",
+  "target_platform": "x86_64-manylinux_2_28",
+  "resolver": "uv 0.11.7 pip compile",
+  "dependency_resolution_passed": true,
+  "resolved_package_count": 244,
+  "resolution_input_sha256": "15bbb68625498f44ed975f61a9ad5e71d4fe8a05daef1d4ab9a5c1fffd5fe122",
+  "resolved_graph_sha256": "0f7e5de97728427e5ab11fbfdbb7ac386e1f73bb6a04647b6331bebab9adb5f9",
+  "regression_tests_passed": 5,
+  "shell_syntax_passed": true,
+  "checks": [
+    "external module pip rejected",
+    "isolated Python ignores module PYTHONPATH",
+    "clean environment passes",
+    "pip accepts constraints without extras",
+    "transient index error retries successfully",
+    "persistent index error stops after 3 attempts",
+    "dependency conflict fails without retry"
+  ],
+  "training_launcher_changed": false,
+  "gpu_install_of_repaired_setup_executed": false,
+  "actual_training_updates_verified": 0
+}
