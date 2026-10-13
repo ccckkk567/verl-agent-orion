@@ -123,3 +123,27 @@ method, is_openable_receptacle. AppWorld's parser, prompt, reward and evaluator 
 unchanged; the native ALFWorld method still uses the same constants when called.
 No new dependencies or prepare rerun are required. Retry only the failed train
 jobs with new run IDs; retain both failed-run reports. ScienceWorld is not changed.
+
+## ALFWorld train 160640: XFORMERS paged-KV kernel incompatibility
+
+The GPU-mask fix passed on HPC: CUDA=0,1 retained, ROCR/HIP unset. Model and
+inference engine initialized, but the first initial-validation generation failed
+inside vLLM 0.11.0 V1 xformers.py -> xformers fmha/flash.py varlen_fwd with
+"Paged KV cache block size must be divisible by 256". The final diagnostic report
+records zero completed episodes and zero updates. This is not an out-of-memory
+error and not evidence of ALFWorld task failure.
+
+The inherited reference launcher forces XFORMERS. Adapt that single requested
+rollout backend to FLASH_ATTN for this installed vLLM/H200 runtime. Upstream
+v0.11.0 FlashAttentionBackend supports bfloat16, Qwen2 head size 128, and KV block
+sizes that are multiples of 16. Source checked:
+https://github.com/vllm-project/vllm/blob/v0.11.0/vllm/v1/attention/backends/flash_attn.py
+https://github.com/vllm-project/vllm/blob/v0.11.0/vllm/platforms/cuda.py
+
+Record the requested backend in stdout and environment_provenance.json and save
+the actual launcher in the implementation snapshot. This is a declared numerical
+kernel adaptation, not a bitwise-equivalent reproduction claim. Keep all native
+training/policy/task/reward/group/KL parameters, V1, CUDA graphs, packages and KV
+block configuration unchanged. No new installation or prepare job needed.
+Shell/Python syntax and diff checks pass locally; actual GPU generation with this
+backend is unverified until the next HPC train job. Other projects are untouched.

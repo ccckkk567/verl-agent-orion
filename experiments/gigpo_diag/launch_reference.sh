@@ -2,7 +2,9 @@
 set -euo pipefail
 ENGINE=${1:-vllm}
 if (( $# )); then shift; fi
-export VLLM_ATTENTION_BACKEND=XFORMERS
+# vLLM 0.11 V1 XFORMERS reaches an incompatible paged-KV flash kernel.
+export VLLM_ATTENTION_BACKEND=FLASH_ATTN
+echo "ROLLOUT_ATTENTION_BACKEND=$VLLM_ATTENTION_BACKEND"
 
 num_cpus_per_env_worker=0.1 # The CPU resource allocated for each environment worker. If you want to use less CPU resources, you can decrease this value.
 
