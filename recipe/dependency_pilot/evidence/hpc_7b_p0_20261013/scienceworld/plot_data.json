@@ -1,0 +1,1490 @@
+{
+  "old": {
+    "analysis_version": "root_p0_evidence_v3_model_comparison",
+    "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+    "env": "scienceworld",
+    "execution_kind": "science_rep0",
+    "subsets": {
+      "power-component-renewable-vs-nonrenewable-energy/5|root_original": {
+        "episodes": 4,
+        "active_steps": 200,
+        "strict_success": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "budget_exhaustion": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "format_compliance": {
+          "value": 0.72,
+          "numerator": 144,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "usable_action": {
+          "value": 0.785,
+          "numerator": 157,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "no_match": {
+          "value": 0.65,
+          "numerator": 130,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "execution_unknown": {
+          "value": 0.085,
+          "numerator": 17,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "input_truncated": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "output_limited": {
+          "value": 0.01,
+          "numerator": 2,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "generated_tokens": 20459,
+        "execution_counts": {
+          "object_or_endpoint_resolution_failed": 52,
+          "unmatched_command": 130,
+          "unknown": 17,
+          "accepted_read_or_observation": 1
+        },
+        "generic_feedback_pre_anchor": {
+          "value": 0.63,
+          "numerator": 126,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "final_native_scores": [
+          38,
+          38,
+          38,
+          5
+        ],
+        "initial_native_scores": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "max_native_score": 38,
+        "nonzero_episode_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_step_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_joint_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "alternative_action_coverage": {
+          "value": 0.9490445859872612,
+          "numerator": 149,
+          "denominator": 157,
+          "unknown_count": 0
+        },
+        "normal_anchor_support": {
+          "value": 0.8688524590163934,
+          "numerator": 53,
+          "denominator": 61,
+          "unknown_count": 0
+        },
+        "generic_anchor_support": {
+          "value": 1.0,
+          "numerator": 96,
+          "denominator": 96,
+          "unknown_count": 0
+        },
+        "supported_with_nonzero_AS": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 157,
+          "unknown_count": 0
+        },
+        "mixed_terminal_group_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "unknown_count": 0
+        },
+        "has_connection": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "target_focused": {
+          "value": 0.75,
+          "numerator": 3,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_initial": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_reached": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "entered_workshop_after_reset": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "positive_score_no_connection": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "endpoint_problem": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_acknowledged": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_newly_established": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "task_relevant_connection": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 4
+        },
+        "connect_attempt_count": 113,
+        "connect_success_count": 0,
+        "connect_success_per_attempt": 0.0
+      },
+      "power-component/7|root_original": {
+        "episodes": 4,
+        "active_steps": 185,
+        "strict_success": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "budget_exhaustion": {
+          "value": 0.5,
+          "numerator": 2,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "format_compliance": {
+          "value": 0.21621621621621623,
+          "numerator": 40,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "usable_action": {
+          "value": 0.5513513513513514,
+          "numerator": 102,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "no_match": {
+          "value": 0.7945945945945946,
+          "numerator": 147,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "execution_unknown": {
+          "value": 0.13513513513513514,
+          "numerator": 25,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "input_truncated": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "output_limited": {
+          "value": 0.032432432432432434,
+          "numerator": 6,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "generated_tokens": 15754,
+        "execution_counts": {
+          "unmatched_command": 147,
+          "accepted_state_change": 6,
+          "accepted_read_or_observation": 4,
+          "unknown": 25,
+          "precondition_blocked": 3
+        },
+        "generic_feedback_pre_anchor": {
+          "value": 0.7945945945945946,
+          "numerator": 147,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "final_native_scores": [
+          -100,
+          0,
+          13,
+          -100
+        ],
+        "initial_native_scores": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_native_score": 13,
+        "nonzero_episode_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "nonzero_step_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "nonzero_joint_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 185,
+          "unknown_count": 0
+        },
+        "alternative_action_coverage": {
+          "value": 0.9117647058823529,
+          "numerator": 93,
+          "denominator": 102,
+          "unknown_count": 0
+        },
+        "normal_anchor_support": {
+          "value": 0.64,
+          "numerator": 16,
+          "denominator": 25,
+          "unknown_count": 0
+        },
+        "generic_anchor_support": {
+          "value": 1.0,
+          "numerator": 77,
+          "denominator": 77,
+          "unknown_count": 0
+        },
+        "supported_with_nonzero_AS": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 102,
+          "unknown_count": 0
+        },
+        "mixed_terminal_group_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "unknown_count": 0
+        },
+        "has_connection": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "target_focused": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_initial": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_reached": {
+          "value": 0.25,
+          "numerator": 1,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "entered_workshop_after_reset": {
+          "value": 0.25,
+          "numerator": 1,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "positive_score_no_connection": {
+          "value": 0.25,
+          "numerator": 1,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "endpoint_problem": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_acknowledged": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_newly_established": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "task_relevant_connection": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 4
+        },
+        "connect_attempt_count": 5,
+        "connect_success_count": 0,
+        "connect_success_per_attempt": 0.0
+      }
+    },
+    "overall": {
+      "episodes": 8,
+      "active_steps": 385,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 0.75,
+        "numerator": 6,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.4779220779220779,
+        "numerator": 184,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.6727272727272727,
+        "numerator": 259,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.7194805194805195,
+        "numerator": 277,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.10909090909090909,
+        "numerator": 42,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.02077922077922078,
+        "numerator": 8,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "generated_tokens": 36213,
+      "execution_counts": {
+        "unmatched_command": 277,
+        "accepted_state_change": 6,
+        "accepted_read_or_observation": 5,
+        "unknown": 42,
+        "precondition_blocked": 3,
+        "object_or_endpoint_resolution_failed": 52
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.7090909090909091,
+        "numerator": 273,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        -100,
+        0,
+        13,
+        -100,
+        38,
+        38,
+        38,
+        5
+      ],
+      "initial_native_scores": [
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        5,
+        5
+      ],
+      "max_native_score": 38,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 385,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 0.9343629343629344,
+        "numerator": 242,
+        "denominator": 259,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": 0.8023255813953488,
+        "numerator": 69,
+        "denominator": 86,
+        "unknown_count": 0
+      },
+      "generic_anchor_support": {
+        "value": 1.0,
+        "numerator": 173,
+        "denominator": 173,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 259,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "episodes": [
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "64595307-d0a8-4242-81f1-7458a380c238",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 35,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "task_failure",
+        "native_score": -100,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "9397ed1b-1d9d-4a1e-827d-fcdccbecb5a0",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 0,
+        "initial_native_score": 0,
+        "connect_attempt_count": 3,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "e27917ba-bead-465f-bf69-029e7052e646",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 13,
+        "initial_native_score": 0,
+        "connect_attempt_count": 2,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": true,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "60bfe692-2850-4903-8799-833c33056051",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "task_failure",
+        "native_score": -100,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "62e390d2-1b00-4bad-855c-8f41fe7bf9ab",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 38,
+        "initial_native_score": 5,
+        "connect_attempt_count": 30,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": true,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": true,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "a920a3d0-7b56-4f95-9c7b-42954a22b718",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 38,
+        "initial_native_score": 5,
+        "connect_attempt_count": 29,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": true,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": true,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "99274cdd-06a5-43f8-b2c7-93aa3b3c5a56",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 38,
+        "initial_native_score": 5,
+        "connect_attempt_count": 30,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": true,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": true,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+        "traj_uid": "4c3de3b9-bbfd-4a83-9818-bb5d102f7dd3",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 5,
+        "initial_native_score": 5,
+        "connect_attempt_count": 24,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": true,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      }
+    ],
+    "model_id": "Qwen2.5-1.5B-Instruct",
+    "policy_updated": false,
+    "training_updates": 0,
+    "advantages": "unchanged upstream, step-weighted episode mean, exact pre-observation groups; incomplete groups excluded",
+    "anchor_support_denominator": "parser-usable active steps in complete four-trajectory groups; normal excludes generic pre-feedback; no filtering of GiGPO advantages",
+    "unknown_policy": "null is excluded from known-label denominator; incomplete negative events censored",
+    "loop_rule": "max(0,min(successful suffix takes,successful suffix puts)-1); replay excluded"
+  },
+  "new": {
+    "analysis_version": "root_p0_evidence_v3_model_comparison",
+    "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+    "env": "scienceworld",
+    "execution_kind": "frozen_root_p0",
+    "subsets": {
+      "power-component-renewable-vs-nonrenewable-energy/5|root_original": {
+        "episodes": 4,
+        "active_steps": 200,
+        "strict_success": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "budget_exhaustion": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "format_compliance": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "usable_action": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "no_match": {
+          "value": 1.0,
+          "numerator": 200,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "execution_unknown": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "input_truncated": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "output_limited": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "generated_tokens": 10600,
+        "execution_counts": {
+          "unmatched_command": 200
+        },
+        "generic_feedback_pre_anchor": {
+          "value": 0.98,
+          "numerator": 196,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "final_native_scores": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "initial_native_scores": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "max_native_score": 5,
+        "nonzero_episode_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_step_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_joint_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "alternative_action_coverage": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 0
+        },
+        "normal_anchor_support": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 0
+        },
+        "generic_anchor_support": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 0
+        },
+        "supported_with_nonzero_AS": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 0
+        },
+        "mixed_terminal_group_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "unknown_count": 0
+        },
+        "has_connection": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "target_focused": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_initial": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_reached": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "entered_workshop_after_reset": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "positive_score_no_connection": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "endpoint_problem": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_acknowledged": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_newly_established": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "task_relevant_connection": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 4
+        },
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "connect_success_per_attempt": null
+      },
+      "power-component/7|root_original": {
+        "episodes": 4,
+        "active_steps": 200,
+        "strict_success": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "budget_exhaustion": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "format_compliance": {
+          "value": 0.02,
+          "numerator": 4,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "usable_action": {
+          "value": 0.02,
+          "numerator": 4,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "no_match": {
+          "value": 0.98,
+          "numerator": 196,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "execution_unknown": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "input_truncated": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "output_limited": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "generated_tokens": 9189,
+        "execution_counts": {
+          "unmatched_command": 196,
+          "precondition_blocked": 2,
+          "accepted_read_or_observation": 2
+        },
+        "generic_feedback_pre_anchor": {
+          "value": 0.96,
+          "numerator": 192,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "final_native_scores": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "initial_native_scores": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_native_score": 0,
+        "nonzero_episode_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_step_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "nonzero_joint_advantage": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 200,
+          "unknown_count": 0
+        },
+        "alternative_action_coverage": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "normal_anchor_support": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 0
+        },
+        "generic_anchor_support": {
+          "value": 1.0,
+          "numerator": 4,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "supported_with_nonzero_AS": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "mixed_terminal_group_rate": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 1,
+          "unknown_count": 0
+        },
+        "has_connection": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "target_focused": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_initial": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "workshop_reached": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "entered_workshop_after_reset": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "positive_score_no_connection": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "endpoint_problem": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_acknowledged": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "connection_newly_established": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 4,
+          "unknown_count": 0
+        },
+        "task_relevant_connection": {
+          "value": null,
+          "numerator": 0,
+          "denominator": 0,
+          "unknown_count": 4
+        },
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "connect_success_per_attempt": null
+      }
+    },
+    "overall": {
+      "episodes": 8,
+      "active_steps": 400,
+      "strict_success": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "budget_exhaustion": {
+        "value": 1.0,
+        "numerator": 8,
+        "denominator": 8,
+        "unknown_count": 0
+      },
+      "format_compliance": {
+        "value": 0.01,
+        "numerator": 4,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "usable_action": {
+        "value": 0.01,
+        "numerator": 4,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "no_match": {
+        "value": 0.99,
+        "numerator": 396,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "execution_unknown": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "input_truncated": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "output_limited": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "generated_tokens": 19789,
+      "execution_counts": {
+        "unmatched_command": 396,
+        "precondition_blocked": 2,
+        "accepted_read_or_observation": 2
+      },
+      "generic_feedback_pre_anchor": {
+        "value": 0.97,
+        "numerator": 388,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "final_native_scores": [
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        5,
+        5
+      ],
+      "initial_native_scores": [
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        5,
+        5
+      ],
+      "max_native_score": 5,
+      "nonzero_episode_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "nonzero_step_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "nonzero_joint_advantage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 400,
+        "unknown_count": 0
+      },
+      "alternative_action_coverage": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "normal_anchor_support": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0,
+        "unknown_count": 0
+      },
+      "generic_anchor_support": {
+        "value": 1.0,
+        "numerator": 4,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "supported_with_nonzero_AS": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 4,
+        "unknown_count": 0
+      },
+      "mixed_terminal_group_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 2,
+        "unknown_count": 0
+      }
+    },
+    "episodes": [
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "afadbee7-1282-4047-bfeb-01a1e2cbcce2",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 0,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "ce809ed4-fb50-4670-833a-d351f0bda4fa",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 0,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "7676db33-75e1-45de-a731-4eff380e073b",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 0,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "6056dc91-2390-4fbf-a786-38f190115122",
+        "task_instance_id": "power-component/7",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 0,
+        "initial_native_score": 0,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": false,
+        "workshop_reached": false,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": false
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "5e733fef-3c49-4242-947b-ab4d96dcf385",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 5,
+        "initial_native_score": 5,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "bcf4e9cd-59a5-4fce-b172-53615112c08a",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 5,
+        "initial_native_score": 5,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "33b85f25-fb5b-4e0d-89b5-80799a9da52e",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 5,
+        "initial_native_score": 5,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      },
+      {
+        "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+        "traj_uid": "706a426b-58eb-4a67-9958-94ca262be34a",
+        "task_instance_id": "power-component-renewable-vs-nonrenewable-energy/5",
+        "prefix_id": null,
+        "condition": "root_original",
+        "continuation_seed": null,
+        "remaining_turns": 50,
+        "agent_turns": 50,
+        "status": "complete",
+        "strict_success": false,
+        "termination_reason": "budget_truncated",
+        "native_score": 5,
+        "initial_native_score": 5,
+        "connect_attempt_count": 0,
+        "connect_success_count": 0,
+        "has_connection": false,
+        "target_focused": false,
+        "workshop_initial": true,
+        "workshop_reached": true,
+        "entered_workshop_after_reset": false,
+        "endpoint_problem": false,
+        "connection_acknowledged": false,
+        "connection_newly_established": false,
+        "task_relevant_connection": null,
+        "positive_score_no_connection": true
+      }
+    ],
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "policy_updated": false,
+    "training_updates": 0,
+    "advantages": "unchanged upstream, step-weighted episode mean, exact pre-observation groups; incomplete groups excluded",
+    "anchor_support_denominator": "parser-usable active steps in complete four-trajectory groups; normal excludes generic pre-feedback; no filtering of GiGPO advantages",
+    "unknown_policy": "null is excluded from known-label denominator; incomplete negative events censored",
+    "loop_rule": "max(0,min(successful suffix takes,successful suffix puts)-1); replay excluded"
+  }
+}

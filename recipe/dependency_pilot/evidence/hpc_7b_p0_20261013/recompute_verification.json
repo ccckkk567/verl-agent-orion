@@ -1,0 +1,36 @@
+{
+  "alfworld": {
+    "hpc_and_local_analysis_equal": true,
+    "diagnostic_rows": 400,
+    "maximum_advantage_recompute_difference": 0.0,
+    "AE_AS_joint_all_zero": true,
+    "first_step_tag_categories": {
+      "malformed_square_action_marker": 8
+    },
+    "tracker": {
+      "backend": "swanlab",
+      "mode_requested": "cloud",
+      "mode": "cloud",
+      "url": "https://swanlab.cn/@KANSEI/gigpo-dependency-pilot/runs/w5i38pgj",
+      "summary_status": "submitted",
+      "finish_status": "completed"
+    }
+  },
+  "scienceworld": {
+    "hpc_and_local_analysis_equal": true,
+    "diagnostic_rows": 400,
+    "maximum_advantage_recompute_difference": 0.0,
+    "AE_AS_joint_all_zero": true,
+    "first_step_tag_categories": {
+      "malformed_square_action_marker": 8
+    },
+    "tracker": {
+      "backend": "swanlab",
+      "mode_requested": "cloud",
+      "mode": "cloud",
+      "url": "https://swanlab.cn/@KANSEI/gigpo-dependency-pilot/runs/2ybv3b5x",
+      "summary_status": "submitted",
+      "finish_status": "completed"
+    }
+  }
+}

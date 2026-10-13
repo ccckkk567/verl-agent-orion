@@ -1,0 +1,21 @@
+{
+  "git_commit": "1de2441b051ae8e1eecf38f3c769abb03e029916",
+  "files": {
+    "recipe/dependency_pilot/post_p0.py": "03739ce967cb52f9781a45f838f8a049d141f8dcf68a0fa9aa2917d0ee64c130",
+    "recipe/dependency_pilot/post_analysis.py": "8a922d59d9a94db370084a8572a2739343b45c965d2d274ccac62cc85fb91e41",
+    "recipe/dependency_pilot/post_audit.py": "ea39a91c6a171a2c0769e2316d3aefb35692b3ee7b61f10d463343cdba27df1d",
+    "recipe/dependency_pilot/environments.py": "e6aa943f65bb34eb5c88b0187b4f2201de23a08d0f944a1db1b99b12075196e9",
+    "recipe/dependency_pilot/post_interface.py": "80b6bf05c46cfc1b685360e847def97257e33babf807ffbeab76b1474e54a5b8",
+    "recipe/dependency_pilot/instrumentation.py": "6e2c1308152e0bf038d6d8e32b3a59dc5fdd0bfd0042c268104466b1d9675868",
+    "recipe/dependency_pilot/diagnostics.py": "ed3b858bed216ec6e6f4e2a34879a6fc48e1702d49d69f3ae521f85ad832bf65",
+    "recipe/dependency_pilot/runtime.py": "0e5d8a9731e86c5e7b71979093c97e400d42f4a05fc9d1b890ddf1417dd1c5b1",
+    "recipe/dependency_pilot/download_model.py": "c4c4db49afeb6483515a1debd20799df66e0c2fc1f531cf4a123424878fb51c3",
+    "recipe/dependency_pilot/configs/model_7b.json": "908953d89f04c1e4ef57ef28287904bdcd511f4daa47c5f20012a19e9b9f2953",
+    "recipe/dependency_pilot/orion/p0_7b.sbatch": "4d69d841905309608dc74b04879686f6ba1fcf26d2164027f30a7de7128b5140",
+    "recipe/dependency_pilot/orion/prepare_7b.sbatch": "90bff698ecbdacd8c90f203d1e0b4c956896b90667606f062c32a74dc4c0adb1",
+    "gigpo/core_gigpo.py": "fa709b91baf2331c4857fee32a249c4ca8d8d69e864d1e71f08730cc8c5cc456",
+    "agent_system/multi_turn_rollout/rollout_loop.py": "fda821ed3ecc0cead90b8ee93d169a27e7a8ea40dd98093de5e21363418bc6af",
+    "agent_system/environments/env_package/alfworld/projection.py": "e794d1217d613ef4b550cfe4bfd0b39b4deb10d47493f31f78aef7b5ebf6dd98",
+    "agent_system/environments/prompts/alfworld.py": "f24267701a1d0fffb81c6e9b69f259d63dba9378515db4764f82f13f23bc9084"
+  }
+}

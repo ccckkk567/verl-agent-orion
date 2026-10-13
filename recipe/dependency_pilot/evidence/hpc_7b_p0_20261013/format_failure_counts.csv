@@ -1,0 +1,9 @@
+model,env,task,run_id,active_steps,complete_xml_action,malformed_square_action_marker,other_missing_or_incomplete_action_tags,format_compliant,nothing_happens,no_known_action,input_truncated,response_at_limit
+1.5B,alfworld,train/pick_and_place_simple-CreditCard-None-Sofa-220/trial_T20190909_110916_512916,alfworld-collect-20261012T095303Z-d56e91,182,182,0,0,154,73,0,0,0
+1.5B,alfworld,train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089,alfworld-collect-20261012T095303Z-d56e91,200,197,0,3,149,92,0,0,0
+7B,alfworld,train/pick_and_place_simple-CreditCard-None-Sofa-220/trial_T20190909_110916_512916,alfworld-p0-7b-20261012T154819Z-a2499e,200,33,167,0,33,172,0,0,0
+7B,alfworld,train/pick_clean_then_place_in_recep-Cloth-None-Toilet-402/trial_T20190906_201431_394089,alfworld-p0-7b-20261012T154819Z-a2499e,200,29,171,0,29,175,0,0,0
+1.5B,scienceworld,power-component/7,scienceworld-rep0-20261012T132744Z-7d238f,185,112,2,71,40,0,147,0,6
+1.5B,scienceworld,power-component-renewable-vs-nonrenewable-energy/5,scienceworld-rep0-20261012T132744Z-7d238f,200,160,1,39,144,0,130,0,2
+7B,scienceworld,power-component/7,scienceworld-p0-7b-20261012T154815Z-46bd69,200,4,192,4,4,0,196,0,0
+7B,scienceworld,power-component-renewable-vs-nonrenewable-energy/5,scienceworld-p0-7b-20261012T154815Z-46bd69,200,0,197,3,0,0,200,0,0

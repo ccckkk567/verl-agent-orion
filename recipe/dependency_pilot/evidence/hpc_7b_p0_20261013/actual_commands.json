@@ -1,0 +1,102 @@
+[
+  {
+    "scope": "actual_hpc_sampling",
+    "env": "alfworld",
+    "job": "159779",
+    "status": "completed_exploratory",
+    "argv": [
+      "python",
+      "-m",
+      "recipe.dependency_pilot.post_p0",
+      "root-p0-7b",
+      "--source-run",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/logs/dependency_pilot/alfworld-collect-20261012T095303Z-d56e91",
+      "--run-dir",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/logs/dependency_pilot/alfworld-p0-7b-159779",
+      "--model-path",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70",
+      "--swanlab-mode",
+      "cloud"
+    ]
+  },
+  {
+    "scope": "actual_hpc_sampling",
+    "env": "scienceworld",
+    "job": "159780",
+    "status": "completed_exploratory",
+    "argv": [
+      "python",
+      "-m",
+      "recipe.dependency_pilot.post_p0",
+      "root-p0-7b",
+      "--source-run",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/logs/dependency_pilot/scienceworld-rep0-159710",
+      "--run-dir",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/logs/dependency_pilot/scienceworld-p0-7b-159780",
+      "--model-path",
+      "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70",
+      "--swanlab-mode",
+      "cloud"
+    ]
+  },
+  {
+    "scope": "actual_local_reanalysis",
+    "env": "alfworld",
+    "exit_code": 0,
+    "argv": [
+      "C:\\Users\\19096\\Desktop\\verl-agent\\tmp\\dep-prep-local\\Scripts\\python.exe",
+      "-m",
+      "recipe.dependency_pilot.post_audit",
+      "compare",
+      "--old",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\hpc-20261012\\alfworld-collect-20261012T095303Z-d56e91",
+      "--new",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\hpc-159779-159780\\alfworld-p0-7b-159779",
+      "--output",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\review-159779-159780\\alfworld"
+    ]
+  },
+  {
+    "scope": "actual_local_plot",
+    "env": "alfworld",
+    "exit_code": 0,
+    "argv": [
+      "C:\\Users\\19096\\Desktop\\verl-agent\\tmp\\dep-prep-local\\Scripts\\python.exe",
+      "-m",
+      "recipe.dependency_pilot.post_audit",
+      "plot-compare",
+      "--output",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\review-159779-159780\\alfworld"
+    ]
+  },
+  {
+    "scope": "actual_local_reanalysis",
+    "env": "scienceworld",
+    "exit_code": 0,
+    "argv": [
+      "C:\\Users\\19096\\Desktop\\verl-agent\\tmp\\dep-prep-local\\Scripts\\python.exe",
+      "-m",
+      "recipe.dependency_pilot.post_audit",
+      "compare",
+      "--old",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\post-p0-20261012\\hpc-159709-159710\\scienceworld-rep0-159710",
+      "--new",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\hpc-159779-159780\\scienceworld-p0-7b-159780",
+      "--output",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\review-159779-159780\\scienceworld"
+    ]
+  },
+  {
+    "scope": "actual_local_plot",
+    "env": "scienceworld",
+    "exit_code": 0,
+    "argv": [
+      "C:\\Users\\19096\\Desktop\\verl-agent\\tmp\\dep-prep-local\\Scripts\\python.exe",
+      "-m",
+      "recipe.dependency_pilot.post_audit",
+      "plot-compare",
+      "--output",
+      "C:\\Users\\19096\\Desktop\\verl-agent\\outputs\\dependency_pilot\\7b-p0-20261012\\review-159779-159780\\scienceworld"
+    ]
+  }
+]

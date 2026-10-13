@@ -1,0 +1,15 @@
+{
+  "other_changes": {},
+  "expected_model_change": {
+    "model_revision": {
+      "old": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "new": "a09a35458c702b33eeacc393d103063234e8bc28"
+    }
+  },
+  "comparability": "matched_except_model",
+  "old_profile": "p0_original",
+  "new_profile": "p0_original",
+  "new_run_id": "alfworld-p0-7b-20261012T154819Z-a2499e",
+  "old_run_id": "alfworld-collect-20261012T095303Z-d56e91",
+  "new_is_full_rep0": true
+}

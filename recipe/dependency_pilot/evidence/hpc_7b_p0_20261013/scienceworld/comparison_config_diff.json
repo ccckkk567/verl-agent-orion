@@ -1,0 +1,15 @@
+{
+  "other_changes": {},
+  "expected_model_change": {
+    "model_revision": {
+      "old": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "new": "a09a35458c702b33eeacc393d103063234e8bc28"
+    }
+  },
+  "comparability": "matched_except_model",
+  "old_profile": "reference_interface_v1",
+  "new_profile": "reference_interface_v1",
+  "new_run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+  "old_run_id": "scienceworld-rep0-20261012T132744Z-7d238f",
+  "new_is_full_rep0": true
+}

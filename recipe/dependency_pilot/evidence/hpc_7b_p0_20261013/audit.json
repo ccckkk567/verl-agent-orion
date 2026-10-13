@@ -1,0 +1,96 @@
+{
+  "alfworld": {
+    "run_id": "alfworld-p0-7b-20261012T154819Z-a2499e",
+    "episodes": 8,
+    "active_steps": 400,
+    "groups": 2,
+    "group_sizes": [
+      4,
+      4
+    ],
+    "reset_observation_matches_baseline": 8,
+    "first_actor_prompt_matches_baseline": 8,
+    "decoded_raw_responses_match": 400,
+    "decoded_inputs_match_full_rendered_prompts": 400,
+    "parser_commands_and_flags_match": 400,
+    "same_hash_tokenizer_used_for_decode": true,
+    "policy_updated": false,
+    "training_updates": 0,
+    "input_truncation_count": 0,
+    "response_limit_count": 0,
+    "model_identity": {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "model_path": "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70",
+      "actual_model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "checkpoint_id": "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70@a09a35458c702b33eeacc393d103063234e8bc28",
+      "tokenizer_id": "Qwen/Qwen2.5-7B-Instruct",
+      "tokenizer_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "chat_template_hash": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "actual_num_parameters": 7615616512,
+      "actual_dtype": "torch.float16",
+      "device_map_resolved": {
+        "": "0"
+      },
+      "policy_updated": false,
+      "training_updates": 0,
+      "file_hashes": {
+        "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "config.json": "7463bb0ea78315365e6c6b74de4e73bbcc8359dfb0c5a737584e077d42c0b03c",
+        "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+        "download_manifest.json": "0ace4d400243af2cf27ea082413876e893bd4fc29b1d426f72ceaf7536a3e753",
+        "model.safetensors.index.json": "624bf7c47cd12468fdc16e38a47cf4f19e0415b859a223ba3c027eed2f0e1028",
+        "generation_config.json": "3a8f9087e486054c8a4a08dae2e5a3ba62e23da212b5b8c08bc42cb983c3459f"
+      }
+    },
+    "source_steps_sha256": "069b7177cf1cc3d2b4472a0b24374d47b5f3893479206e7794aeb5f834ed3074"
+  },
+  "scienceworld": {
+    "run_id": "scienceworld-p0-7b-20261012T154815Z-46bd69",
+    "episodes": 8,
+    "active_steps": 400,
+    "groups": 2,
+    "group_sizes": [
+      4,
+      4
+    ],
+    "reset_observation_matches_baseline": 8,
+    "first_actor_prompt_matches_baseline": 8,
+    "decoded_raw_responses_match": 400,
+    "decoded_inputs_match_full_rendered_prompts": 400,
+    "parser_commands_and_flags_match": 400,
+    "same_hash_tokenizer_used_for_decode": true,
+    "policy_updated": false,
+    "training_updates": 0,
+    "input_truncation_count": 0,
+    "response_limit_count": 0,
+    "model_identity": {
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "model_path": "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70",
+      "actual_model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "checkpoint_id": "/scratch/prjsnnn0000269/Students/shuming/cjk/data/models/Qwen2.5-7B-Instruct-a09a35458c70@a09a35458c702b33eeacc393d103063234e8bc28",
+      "tokenizer_id": "Qwen/Qwen2.5-7B-Instruct",
+      "tokenizer_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "chat_template_hash": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "actual_num_parameters": 7615616512,
+      "actual_dtype": "torch.float16",
+      "device_map_resolved": {
+        "": "0"
+      },
+      "policy_updated": false,
+      "training_updates": 0,
+      "file_hashes": {
+        "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "config.json": "7463bb0ea78315365e6c6b74de4e73bbcc8359dfb0c5a737584e077d42c0b03c",
+        "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+        "download_manifest.json": "0ace4d400243af2cf27ea082413876e893bd4fc29b1d426f72ceaf7536a3e753",
+        "model.safetensors.index.json": "624bf7c47cd12468fdc16e38a47cf4f19e0415b859a223ba3c027eed2f0e1028",
+        "generation_config.json": "3a8f9087e486054c8a4a08dae2e5a3ba62e23da212b5b8c08bc42cb983c3459f"
+      }
+    },
+    "source_steps_sha256": "64922b82b42a8744ffb89f56fce367b5a100737da6e5fad694591085787e8849"
+  }
+}
