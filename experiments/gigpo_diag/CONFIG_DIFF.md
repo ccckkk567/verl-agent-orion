@@ -147,3 +147,28 @@ training/policy/task/reward/group/KL parameters, V1, CUDA graphs, packages and K
 block configuration unchanged. No new installation or prepare job needed.
 Shell/Python syntax and diff checks pass locally; actual GPU generation with this
 backend is unverified until the next HPC train job. Other projects are untouched.
+
+
+## ALFWorld 160666: host-memory limit after the first training rollout
+
+This retry used FLASH_ATTN, completed 128 initial reference-evaluation episodes
+(val/success_rate=0.0703125, 9/128), then the first 128 training trajectories.
+The driver was awaiting compute_ref_log_prob when WorkerDict PID 506465 exited.
+It recorded 256 total episodes and zero optimizer updates. The subsequent Ray
+EOF and NCCL connection-reset/broken-pipe messages are downstream symptoms.
+
+Slurm explicitly reported an oom_kill in 160666.batch. User-provided accounting
+confirms OUT_OF_MEMORY, ReqMem=128G, batch MaxRSS=118.25G, elapsed=00:23:18.
+The recorded RSS is not an exact instantaneous total job-memory peak; it does
+not contradict the OOM classification. There is no CUDA out-of-memory exception
+in this evidence, and no evidence here isolates a particular memory allocation
+or establishes a leak.
+
+Increase the ALFWorld train host-memory request from 128G to 256G. This is a
+resource adaptation, not a batch/algorithm change: keep 2 GPUs, 32 CPUs, all
+train/eval sizes, group=8, microbatches, reference-policy offload, KL, prompts,
+parsers, rewards, seeds and the training schedule unchanged. Record the Slurm
+job description and SLURM_MEM_PER_NODE, and snapshot train.sbatch for provenance.
+The larger allocation must be validated by the next HPC run; sufficient memory
+or successful optimizer progress is not yet established. No prepare rerun is
+needed. Preserve failed-run data and submit a new train with a fresh run ID.

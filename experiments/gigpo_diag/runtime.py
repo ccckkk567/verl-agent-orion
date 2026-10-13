@@ -58,6 +58,7 @@ def record_provenance(config):
             versions[package] = None
     provenance = {'python':sys.version, 'executable':sys.executable, 'verl_file':str(actual), 'packages':versions,
                   'cuda_visible_devices':os.environ.get('CUDA_VISIBLE_DEVICES'), 'job_id':os.environ.get('SLURM_JOB_ID'),
+                  'slurm_mem_per_node_mb':os.environ.get('SLURM_MEM_PER_NODE'),
                   'vllm_attention_backend_requested':os.environ.get('VLLM_ATTENTION_BACKEND'),
                   'vllm_use_v1_requested':os.environ.get('VLLM_USE_V1')}
     if os.environ['GIGPO_ENV'] == 'scienceworld':
@@ -78,7 +79,7 @@ def record_provenance(config):
                 'reference_schedule_epochs':config.trainer.total_epochs, 'formal_holdout_details_saved':False}
     (output/'RUN_MANIFEST.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
     snapshot = output/'implementation_snapshot'
-    for name in ('gigpo/core_gigpo.py','agent_system/environments/env_manager.py','agent_system/multi_turn_rollout/rollout_loop.py','verl/trainer/ppo/ray_trainer.py','experiments/gigpo_diag/diagnostics.py','experiments/gigpo_diag/SOURCE.json','experiments/gigpo_diag/CONFIG_DIFF.md','experiments/gigpo_diag/launch_reference.sh'):
+    for name in ('gigpo/core_gigpo.py','agent_system/environments/env_manager.py','agent_system/multi_turn_rollout/rollout_loop.py','verl/trainer/ppo/ray_trainer.py','experiments/gigpo_diag/diagnostics.py','experiments/gigpo_diag/SOURCE.json','experiments/gigpo_diag/CONFIG_DIFF.md','experiments/gigpo_diag/launch_reference.sh','experiments/gigpo_diag/train.sbatch'):
         dest=snapshot/name
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(root/name,dest)

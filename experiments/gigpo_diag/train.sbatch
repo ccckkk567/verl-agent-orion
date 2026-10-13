@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:2
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=128G
+#SBATCH --mem=256G
 #SBATCH --time=17:50:00
 #SBATCH --output=/scratch/prjsnnn0000269/Students/shuming/cjk/logs/ggp-alfworld-train-%j.out
 export GIGPO_ENV=alfworld
@@ -22,6 +22,8 @@ export GIGPO_CODE_COMMIT="$(git rev-parse HEAD)"
 export GIGPO_RUN_ID="${GIGPO_RUN_ID:-${GIGPO_ENV}-qwen25-15b-gigpo-${SLURM_JOB_ID}-$(date -u +%Y%m%dT%H%M%SZ)}"
 export GIGPO_RUN_DIR="$ORION_ROOT/logs/gigpo-reproduction/$GIGPO_ENV/$GIGPO_RUN_ID"
 mkdir -p "$GIGPO_RUN_DIR"
+echo "TRAIN_HOST_MEMORY_MB=${SLURM_MEM_PER_NODE:-unknown}"
+scontrol show job "$SLURM_JOB_ID" -o > "$GIGPO_RUN_DIR/slurm_job.txt" || true
 export GIGPO_DIAG_DIR="$GIGPO_RUN_DIR/diagnostics"
 export SWANLAB_LOG_DIR="$GIGPO_RUN_DIR/swanlog"
 export APPWORLD_ROOT="$GIGPO_RUN_DIR/appworld"
