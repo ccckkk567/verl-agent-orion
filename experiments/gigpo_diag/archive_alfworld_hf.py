@@ -49,7 +49,8 @@ def verify(local, remote):
         raise ValueError('Remote content hash mismatch or unavailable')
 
 def main():
-    from huggingface_hub import HfApi, RepoFile
+    from huggingface_hub import HfApi
+    from huggingface_hub.hf_api import RepoFile
     idle()
     api = HfApi()
     if api.whoami()['name'] != 'Fyvoid':
